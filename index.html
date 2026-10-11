@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="siteTitle">Інтернет-магазин</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
 </head>
 <body>
 
     <header>
-        <div class="logo" id="mainLogo">🔊 ЛОГОТИП</div>
-        <p class="subtitle" id="mainSubtitle">Товари, які ти любиш</p>
+        <div class="logo" id="mainLogo">LOGOTYPE</div>
+        <p class="subtitle" id="mainSubtitle">ТОВАРИ, ЯКІ ТИ ЛЮБИШ</p>
     </header>
 
     <main>
-        <!-- Главный продающий блок -->
+        <!-- Головний блок товару -->
         <section class="main-offer-box">
             <h1 id="productName">Назва товару</h1>
-            <p class="product-lead" id="productDescription">Короткий опис товару та його головна фішка.</p>
+            <p class="product-lead" id="productDescription">Короткий опис товару.</p>
             
             <div class="price-badge-box">
                 <span class="old-price" id="oldPriceText">Стара ціна: 000 грн</span>
@@ -30,15 +30,15 @@
             <button class="order-anchor-btn" onclick="scrollToForm()" id="buttonText">ЗАМОВИТИ БЕЗ ДЗВІНКІВ</button>
         </section>
 
-        <!-- Блок преимуществ (Офферы) -->
+        <!-- Блок переваг (БК 1, 2, 3) -->
         <section class="benefits-box">
             <h2 id="benefitsTitle">Чому цей товар такий крутий?</h2>
             <div class="benefits-list" id="benefitsContainer">
-                <!-- Сюда блоки бк 1, 2, 3 вставляются автоматически из конфига -->
+                <!-- Картки вставляються автоматично -->
             </div>
         </section>
 
-        <!-- Форма заказа -->
+        <!-- Форма замовлення -->
         <section class="order-section" id="order-form-block">
             <div class="form-container">
                 <h2>Оформлення замовлення</h2>
@@ -59,16 +59,26 @@
     </main>
 
     <!-- ================================================================= -->
-    <!-- БЛОК НАПОВНЕННЯ САЙТУ (РЕДАГУЙ ТІЛЬКИ ЦЕЙ БЛОК ВНИЗУ) -->
+    <!-- БЛОК НАПОВНЕННЯ ТА НАЛАШТУВАННЯ ДИЗАЙНУ (РЕДАГУЙ ТУТ) -->
     <!-- ================================================================= -->
     <script>
         const LANDING_CONFIG = {
-            // 1. Налаштування вкладки та шапки
+            // 🎨 НАЛАШТУВАННЯ КОЛЬОРІВ САЙТУ (Можна вставляти HEX, rgb або назви кольорів)
+            styles: {
+                bodyBg: "#0b0f17",        // Головний фон сайту (зараз глибокий темний)
+                cardBg: "#111827",        // Фон карток та блоків
+                textColor: "#f1f5f9",     // Колір звичайного тексту
+                titleColor: "#ffffff",    // Колір заголовків (H1, назви товарів)
+                accentColor: "#10b981",   // Акцентний колір (Ціна, заголовок переваг)
+                btnBg: "#6366f1",         // Колір головної кнопки капсули
+                btnHoverBg: "#4f46e5",    // Колір головної кнопки при наведенні
+                btnTextColor: "#ffffff"   // Колір тексту на кнопці
+            },
+
+            // 📝 НАЛАШТУВАННЯ ТЕКСТУ ТА КОНТЕНТУ
             pageTitle: "Офіційний магазин | Купити вигідно",
             logoText: "bastyshop.shop",
             subtitleText: "ТОВАРИ, ЯКІ ТИ ЛЮБИШ",
-
-            // 2. Головний оффер (Текст і Ціни)
             productName: "🌌 Лазерний проектор Астронавт",
             productDesc: "Перетвори свою кімнату на справжній відкритий космос! 8 неймовірних режимів яскравих туманностей, космічні зірки та зручне керування з пульта.",
             oldPrice: "Стара ціна: 840 грн",
@@ -76,36 +86,36 @@
             newPrice: "499 грн",
             buttonText: "ЗАМОВИТИ БЕЗ ДЗВІНКІВ",
 
-            // 3. Блок переваг (Ті самі бк 1, бк 2, бк 3, які тепер легко редагувати)
             benefitsTitle: "Чому цей нічник такий крутий?",
             benefits: [
-                {
-                    icon: "🔮",
-                    title: "8 режимів світіння:",
-                    text: "створюй космічну атмосферу під будь-який настрій."
-                },
-                {
-                    icon: "🕹️",
-                    title: "Пульт ДУ в комплекті:",
-                    text: "змінюй кольори, яскравість та швидкість не встаючи з ліжка."
-                },
-                {
-                    icon: "🛸",
-                    title: "Обертання на 360°:",
-                    text: "направляй проекцію на стелю, стіни або підлогу під будь-яким кутом."
-                },
-                {
-                    icon: "🎁",
-                    title: "Ідеальний подарунок:",
-                    text: "викликає повний захват як у маленьких дітей, так і у дорослих."
-                }
+                { icon: "🔮", title: "8 режимів світіння:", text: "створюй космічну атмосферу під будь-який настрій." },
+                { icon: "🕹️", title: "Пульт ДУ в комплекті:", text: "змінюй кольори, яскравість та швидкість не встаючи з ліжка." },
+                { icon: "🛸", title: "Обертання на 360°:", text: "направляй проекцію на стелю, стіни або підлогу під будь-яким кутом." },
+                { icon: "🎁", title: "Ідеальний подарунок:", text: "викликає повний захват як у маленьких дітей, так і у дорослих." }
             ]
         };
 
         // =================================================================
-        // ЛОГІКА СКРИПТА (АВТОМАТИЧНО РОЗКИДУЄ КОНТЕНТ ПО САЙТУ)
+        // ЛОГІКА СКРИПТА (АВТОМАТИЧНО ЗАСТОСОВУЄ ЦВЕТА И ТЕКСТЫ)
         // =================================================================
+        function applyStyles() {
+            const root = document.documentElement;
+            const s = LANDING_CONFIG.styles;
+            
+            // Передаємо кольори з конфігу в CSS
+            root.style.setProperty('--body-bg', s.bodyBg);
+            root.style.setProperty('--card-bg', s.cardBg);
+            root.style.setProperty('--text-color', s.textColor);
+            root.style.setProperty('--title-color', s.titleColor);
+            root.style.setProperty('--accent-color', s.accentColor);
+            root.style.setProperty('--btn-bg', s.btnBg);
+            root.style.setProperty('--btn-hover-bg', s.btnHoverBg);
+            root.style.setProperty('--btn-text-color', s.btnTextColor);
+        }
+
         function initLanding() {
+            applyStyles(); // Спочатку натягуємо кольори
+
             document.title = LANDING_CONFIG.pageTitle;
             document.getElementById('mainLogo').innerText = LANDING_CONFIG.logoText;
             document.getElementById('mainSubtitle').innerText = LANDING_CONFIG.subtitleText;
