@@ -9,34 +9,44 @@
 <body>
 
     <header>
-        <div class="logo" id="mainLogo">✨ BESTY SHOP</div>
-        <p class="subtitle" id="mainSubtitle">Якісні товари за найкращими цінами</p>
+        <div class="logo" id="mainLogo">🔊 ЛОГОТИП</div>
+        <p class="subtitle" id="mainSubtitle">Товари, які ти любиш</p>
     </header>
 
     <main>
-        <section class="catalog-section">
-            <h2 class="section-title" id="catalogTitle">Наші пропозиції</h2>
+        <!-- Главный продающий блок -->
+        <section class="main-offer-box">
+            <h1 id="productName">Назва товару</h1>
+            <p class="product-lead" id="productDescription">Короткий опис товару та його головна фішка.</p>
             
-            <div class="carousel-wrapper">
-                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-                <button class="carousel-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
-                
-                <div class="carousel-container">
-                    <div class="carousel-track" id="carouselTrack">
-                        <!-- Карточки товаров генерируются автоматически из конфига внизу -->
-                    </div>
+            <div class="price-badge-box">
+                <span class="old-price" id="oldPriceText">Стара ціна: 000 грн</span>
+                <div class="action-price">
+                    <span id="actionLabel">🔥 Акція:</span>
+                    <span class="new-price" id="newPriceText">000 грн</span>
                 </div>
+            </div>
+            
+            <button class="order-anchor-btn" onclick="scrollToForm()" id="buttonText">ЗАМОВИТИ БЕЗ ДЗВІНКІВ</button>
+        </section>
+
+        <!-- Блок преимуществ (Офферы) -->
+        <section class="benefits-box">
+            <h2 id="benefitsTitle">Чому цей товар такий крутий?</h2>
+            <div class="benefits-list" id="benefitsContainer">
+                <!-- Сюда блоки бк 1, 2, 3 вставляются автоматически из конфига -->
             </div>
         </section>
 
+        <!-- Форма заказа -->
         <section class="order-section" id="order-form-block">
             <div class="form-container">
                 <h2>Оформлення замовлення</h2>
-                <p class="form-subtitle">Заповніть форму, і наш менеджер зв'яжеться з вами</p>
+                <p class="form-subtitle">Заповніть форму, і замовлення відправиться в обробку</p>
                 
-                <form id="catalogOrderForm">
-                    <label for="selectedProduct">Обраний товар:</label>
-                    <input type="text" id="selectedProduct" readonly value="">
+                <form id="landingOrderForm">
+                    <label for="orderProduct">Обраний товар:</label>
+                    <input type="text" id="orderProduct" readonly value="">
                     
                     <input type="text" id="userName" placeholder="Ваше Ім'я" required>
                     <input type="tel" id="userPhone" placeholder="Номер телефону" required>
@@ -52,144 +62,98 @@
     <!-- БЛОК НАПОВНЕННЯ САЙТУ (РЕДАГУЙ ТІЛЬКИ ЦЕЙ БЛОК ВНИЗУ) -->
     <!-- ================================================================= -->
     <script>
-        const SHOP_CONFIG = {
-            // 1. Шапка та назва сайту
-            title: "Besty Shop | Офіційний магазин",
-            logo: "📦 BESTY SHOP",
-            subtitle: "Тільки перевірені товари • Швидка доставка",
-            catalogTitle: "Оберіть ваш варіант комплектації",
+        const LANDING_CONFIG = {
+            // 1. Налаштування вкладки та шапки
+            pageTitle: "Офіційний магазин | Купити вигідно",
+            logoText: "bastyshop.shop",
+            subtitleText: "ТОВАРИ, ЯКІ ТИ ЛЮБИШ",
 
-            // 2. Список товарів (Каталог). Можеш міняти, видаляти або додавати нові блоки { }
-            products: [
+            // 2. Головний оффер (Текст і Ціни)
+            productName: "🌌 Лазерний проектор Астронавт",
+            productDesc: "Перетвори свою кімнату на справжній відкритий космос! 8 неймовірних режимів яскравих туманностей, космічні зірки та зручне керування з пульта.",
+            oldPrice: "Стара ціна: 840 грн",
+            actionLabel: "🔥 Акція:",
+            newPrice: "499 грн",
+            buttonText: "ЗАМОВИТИ БЕЗ ДЗВІНКІВ",
+
+            // 3. Блок переваг (Ті самі бк 1, бк 2, бк 3, які тепер легко редагувати)
+            benefitsTitle: "Чому цей нічник такий крутий?",
+            benefits: [
                 {
-                    badge: "Популярно",
-                    img: "https://ibb.co",
-                    title: "Комплект 'Mini'",
-                    desc: "Базовий варіант для невеликих локацій. Оптимальне співвідношення ціни та функціоналу.",
-                    oldPrice: "499 грн",
-                    newPrice: "199 грн"
+                    icon: "🔮",
+                    title: "8 режимів світіння:",
+                    text: "створюй космічну атмосферу під будь-який настрій."
                 },
                 {
-                    badge: "Акція",
-                    img: "https://ibb.co",
-                    title: "Комплект 'Light'",
-                    desc: "Стандартний набір, який включає все необхідне для швидкого старту та використання.",
-                    oldPrice: "599 грн",
-                    newPrice: "299 грн"
+                    icon: "🕹️",
+                    title: "Пульт ДУ в комплекті:",
+                    text: "змінюй кольори, яскравість та швидкість не встаючи з ліжка."
                 },
                 {
-                    badge: "Хіт продажів",
-                    img: "https://ibb.co",
-                    title: "Комплект 'Comfort'",
-                    desc: "Оптимальний вибір більшості покупців. Покращена комплектація та розширена гарантія.",
-                    oldPrice: "899 грн",
-                    newPrice: "499 грн",
-                    isFeatured: true // Цей товар буде стартовим по центру
+                    icon: "🛸",
+                    title: "Обертання на 360°:",
+                    text: "направляй проекцію на стелю, стіни або підлогу під будь-яким кутом."
                 },
                 {
-                    badge: "Максимум",
-                    img: "https://ibb.co",
-                    title: "Комплект 'Smart Pro'",
-                    desc: "Преміальна версія з максимальними можливостями та інтелектуальним керуванням.",
-                    oldPrice: "1399 грн",
-                    newPrice: "799 грн"
-                },
-                {
-                    badge: "Преміум",
-                    img: "https://ibb.co",
-                    title: "Комплект 'Mega Smart'",
-                    desc: "Ексклюзивний набір для професійного використання. Максимальний об'єм та потужність.",
-                    oldPrice: "1799 грн",
-                    newPrice: "999 грн"
+                    icon: "🎁",
+                    title: "Ідеальний подарунок:",
+                    text: "викликає повний захват як у маленьких дітей, так і у дорослих."
                 }
             ]
         };
 
         // =================================================================
-        // ЛОГІКА РОБОТИ САЙТУ (СЮДИ МОЖНА НЕ ЛАЗИТИ)
+        // ЛОГІКА СКРИПТА (АВТОМАТИЧНО РОЗКИДУЄ КОНТЕНТ ПО САЙТУ)
         // =================================================================
-        let currentIndex = 0;
+        function initLanding() {
+            document.title = LANDING_CONFIG.pageTitle;
+            document.getElementById('mainLogo').innerText = LANDING_CONFIG.logoText;
+            document.getElementById('mainSubtitle').innerText = LANDING_CONFIG.subtitleText;
+            document.getElementById('productName').innerText = LANDING_CONFIG.productName;
+            document.getElementById('productDescription').innerText = LANDING_CONFIG.productDesc;
+            document.getElementById('oldPriceText').innerText = LANDING_CONFIG.oldPrice;
+            document.getElementById('actionLabel').innerText = LANDING_CONFIG.actionLabel;
+            document.getElementById('newPriceText').innerText = LANDING_CONFIG.newPrice;
+            document.getElementById('buttonText').innerText = LANDING_CONFIG.buttonText;
+            document.getElementById('benefitsTitle').innerText = LANDING_CONFIG.benefitsTitle;
+            document.getElementById('orderProduct').value = `${LANDING_CONFIG.productName} — ${LANDING_CONFIG.newPrice}`;
 
-        function initShop() {
-            document.title = SHOP_CONFIG.title;
-            document.getElementById('mainLogo').innerText = SHOP_CONFIG.logo;
-            document.getElementById('mainSubtitle').innerText = SHOP_CONFIG.subtitle;
-            document.getElementById('catalogTitle').innerText = SHOP_CONFIG.catalogTitle;
-
-            const track = document.getElementById('carouselTrack');
-            track.innerHTML = '';
-
-            SHOP_CONFIG.products.forEach((prod, index) => {
-                if (prod.isFeatured) currentIndex = index;
-
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <div class="badge">${prod.badge}</div>
-                    <div class="product-img-block">
-                        <img src="${prod.img}" alt="${prod.title}">
+            const container = document.getElementById('benefitsContainer');
+            container.innerHTML = '';
+            
+            LANDING_CONFIG.benefits.forEach(item => {
+                const row = document.createElement('div');
+                row.className = 'benefit-item';
+                row.innerHTML = `
+                    <div class="benefit-icon">${item.icon}</div>
+                    <div class="benefit-content">
+                        <strong>${item.title}</strong> ${item.text}
                     </div>
-                    <h3>${prod.title}</h3>
-                    <p class="card-desc">${prod.desc}</p>
-                    <div class="card-price">
-                        <span class="old-p">${prod.oldPrice}</span>
-                        <span class="new-p">${prod.newPrice}</span>
-                    </div>
-                    <button class="select-btn ${prod.isFeatured ? 'dynamic-btn' : ''}" onclick="selectProduct('${prod.title} - ${prod.newPrice}')">Хочу цей</button>
                 `;
-                track.appendChild(card);
+                container.appendChild(row);
             });
-
-            updateCarousel();
         }
 
-        function updateCarousel() {
-            const track = document.getElementById('carouselTrack');
-            const cards = document.querySelectorAll('.product-card');
-            
-            cards.forEach((card, index) => {
-                card.classList.remove('active');
-                if (index === currentIndex) card.classList.add('active');
-            });
-
-            const cardWidth = 330; 
-            const offset = -(currentIndex * cardWidth) + cardWidth; 
-            track.style.transform = `translateX(${offset}px)`;
-            
-            // Автопідстановка назви товару у форму
-            const activeProd = SHOP_CONFIG.products[currentIndex];
-            document.getElementById('selectedProduct').value = `${activeProd.title} - ${activeProd.newPrice}`;
-        }
-
-        function changeSlide(direction) {
-            const cards = document.querySelectorAll('.product-card');
-            currentIndex += direction;
-            if (currentIndex < 0) currentIndex = 0;
-            if (currentIndex >= cards.length) currentIndex = cards.length - 1;
-            updateCarousel();
-        }
-
-        function selectProduct(productName) {
-            document.getElementById('selectedProduct').value = productName;
+        function scrollToForm() {
             document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
         }
 
-        document.getElementById('catalogOrderForm').addEventListener('submit', function(e) {
+        document.getElementById('landingOrderForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const product = document.getElementById('selectedProduct').value;
+            const product = document.getElementById('orderProduct').value;
             const name = document.getElementById('userName').value;
             const phone = document.getElementById('userPhone').value;
-            
             const status = document.getElementById('statusMessage');
+            
             status.innerHTML = `<h3>🎉 Замовлення прийнято!</h3>
                                 <p><b>Товар:</b> ${product}</p>
-                                <p><b>Покупець:</b> ${name}</p>
+                                <p><b>Ім'я:</b> ${name}</p>
                                 <p><b>Телефон:</b> ${phone}</p>`;
             status.className = "success-box";
             status.classList.remove('hidden');
         });
 
-        window.onload = initShop;
+        window.onload = initLanding;
     </script>
 </body>
 </html>
