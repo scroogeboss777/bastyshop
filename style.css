@@ -10,7 +10,6 @@ header {
     padding: 25px 20px;
     text-align: center;
     background: var(--header-bg);
-    /* Настраиваемый бордер шапки */
     border-bottom: var(--block-border-size) var(--block-border-style) var(--block-border-color);
     box-sizing: border-box;
 }
@@ -38,7 +37,6 @@ main {
 /* КАРТОЧКИ КОНТЕНТА С УПРАВЛЯЕМЫМИ БОРДЕРАМИ */
 .main-offer-box, .benefits-box, .form-container {
     background: var(--card-bg);
-    /* Бордеры теперь берутся прямо из конфига внизу index.html */
     border: var(--block-border-size) var(--block-border-style) var(--block-border-color);
     border-radius: 16px;
     padding: 30px 20px;
@@ -71,7 +69,7 @@ main {
 .old-price {
     display: block;
     text-decoration: line-through;
-    color: var(--old-price-color); /* Отдельный цвет для зачеркнутого текста */
+    color: var(--old-price-color);
     font-size: 13px;
     margin-bottom: 5px;
 }
@@ -166,11 +164,63 @@ form input:focus { border-color: var(--btn1-bg); outline: none; }
     color: var(--btn2-text-hover-color); 
 }
 
-.success-box {
-    margin-top: 15px;
-    padding: 15px;
-    background: #059669;
-    border-radius: 8px;
-    color: #ffffff;
+/* СТИЛИ ДЛЯ МОДНОГО ПОПАПУ ПО ЦЕНТРУ ЕКРАНА */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
 }
-.hidden { display: none; }
+.popup-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.popup-box {
+    background: #ffffff; 
+    color: #111827;     
+    padding: 35px 25px;
+    border-radius: 20px;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    box-sizing: border-box;
+    transform: scale(0.85);
+    transition: transform 0.3s ease;
+}
+.popup-overlay.active .popup-box {
+    transform: scale(1);
+}
+.popup-close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 28px;
+    font-weight: 300;
+    color: #9ca3af;
+    cursor: pointer;
+    line-height: 1;
+}
+.popup-close-btn:hover { color: #111827; }
+
+#statusMessage h3 {
+    margin: 0 0 10px 0;
+    color: #10b981; 
+    font-size: 22px;
+}
+.popup-p { margin: 0 0 15px 0; color: #4b5563; font-size: 14px; }
+.popup-hr { border: none; border-top: 1px solid #e5e7eb; margin: 15px 0; }
+.popup-detail { text-align: left; margin: 6px 0; font-size: 14px; color: #111827; }
