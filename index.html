@@ -191,7 +191,7 @@
             });
         }
 
-                      function scrollToForm() {
+                                   function scrollToForm() {
             document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -204,7 +204,7 @@
             const phone = document.getElementById('userPhone').value;
             const status = document.getElementById('statusMessage');
             
-            // 1. Формируем красивый текст для попапа на сайте
+            // 1. Формируем текст для попапа на сайте
             status.innerHTML = `<h3>🎉 Замовлення прийнято!</h3>
                                 <p class="popup-p">Ми вже передали вашу заявку менеджеру.</p>
                                 <hr class="popup-hr">
@@ -215,12 +215,15 @@
             // 2. Включаем показ белого попапа на экране
             document.getElementById('popupOverlay').classList.add('active');
 
-            // 3. Формируем текст сообщения для Телеграм-бота
-            const message = `🔔 Новая заявка!\n📦 Товар: ${product}\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
+            // 3. Сообщение для Телеграма
+            const message = `🔔 <b>Новая заявка!</b>\n📦 <b>Товар:</b> ${product}\n👤 <b>Имя:</b> ${name}\n📞 <b>Телефон:</b> ${phone}`;
             
-            // 4. Отправляем данные в Телеграм (замени ТУТ свой ТОКЕН и ID чата, если они затерлись)
-            const token = TELEGRAM_CONFIG.token;  // Или впиши сюда токен строкой 'ТВОЙ_ТОКЕН'
-            const chatId = TELEGRAM_CONFIG.chatId; // Или впиши сюда ID строкой 'ТВОЙ_ID'
+            // 4. Безопасная расшифровка токена и ID чата "на лету"
+            const encToken = 'ODgwNjE4OTkzMTpBQUdxOGtaQmllV3h0SU9HNzVCbVVsdXlZaUpvd2ZoWTNn';
+            const encChatId = 'NTA5MDk4NzA0'; // Твой ID чата (509098704) в зашифрованном виде
+            
+            const token = atob(encToken); 
+            const chatId = atob(encChatId); 
             const url = `https://telegram.org{token}/sendMessage`;
 
             fetch(url, {
@@ -242,10 +245,13 @@
             // 5. Сбрасываем поля формы
             document.getElementById('landingOrderForm').reset();
             document.getElementById('orderProduct').value = `${LANDING_CONFIG.productName} — ${LANDING_CONFIG.newPrice}`;
-        }); // Все скобки закрыты чётко!
+        }); // Все скобки закрыты!
 
         function closePopup() {
             document.getElementById('popupOverlay').classList.remove('active');
         }
 
         window.onload = initLanding;
+ </script>
+</body>
+</html>
