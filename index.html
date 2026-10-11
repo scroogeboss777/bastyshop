@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="siteTitle">Інтернет-магазин</title>
     <!-- Добавили версию v=7, чтобы гитхаб гарантированно сбросил кэш -->
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=16">
 </head>
 <body>
 
@@ -191,7 +191,7 @@
             });
         }
 
-                                        function scrollToForm() {
+             function scrollToForm() {
             document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -218,42 +218,45 @@
             // 3. Сообщение для Телеграма
             const message = `🔔 <b>Новая заявка!</b>\n📦 <b>Товар:</b> ${product}\n👤 <b>Имя:</b> ${name}\n📞 <b>Телефон:</b> ${phone}`;
             
-            // 4. Безопасная расшифровка токена и ID чата "на лету"
+            // 4. Расшифровка токена и ID чата
             const encToken = 'ODgwNjE4OTkzMTpBQUdxOGtaQmllV3h0SU9HNzVCbVVsdXlZaUpvd2ZoWTNn';
-            const encChatId = 'NTA5MDk4NzA0'; // Твой ID чата (509098704) в зашифрованном виде
+            const encChatId = 'NTA5MDk4NzA0';
             
             const token = atob(encToken); 
             const chatId = atob(encChatId); 
-            
-            // СТРОКА ИСПРАВЛЕНА: теперь адрес для бота указан абсолютно верно
             const url = `https://telegram.org{token}/sendMessage`;
 
-            fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: message,
-                    parse_mode: 'HTML'
-                })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    console.error('Ошибка отправки в Телеграм');
+            // 5. Альтернативная отправка через XMLHttpRequest (без fetch)
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status !== 200) {
+                        // Если ТГ вернул ошибку, выводим её прямо в попап внизу страницы
+                        status.innerHTML += `<p style="color:red; font-size:12px; margin-top:10px;">Ошибка ТГ: ${xhr.status} - ${xhr.responseText}</p>`;
+                    }
                 }
-            })
-            .catch(error => console.error('Ошибка сети:', error));
+            };
+            
+            xhr.send(JSON.stringify({
+                chat_id: chatId,
+                text: message,
+                parse_mode: 'HTML'
+            }));
 
-            // 5. Сбрасываем поля формы
+            // 6. Сбрасываем поля формы
             document.getElementById('landingOrderForm').reset();
             document.getElementById('orderProduct').value = `${LANDING_CONFIG.productName} — ${LANDING_CONFIG.newPrice}`;
-        }); // Все скобки закрыты!
+        });
 
         function closePopup() {
             document.getElementById('popupOverlay').classList.remove('active');
         }
 
         window.onload = initLanding;
+
 
  </script>
 </body>
