@@ -191,19 +191,20 @@
             });
         }
 
-               function scrollToForm() {
+                      function scrollToForm() {
             document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Обработка формы и вызов попапа (ВСЕ СКОБКИ И КЛАССЫ ЗАКРЫТЫ)
+        // Обработка формы, показ попапа и отправка в Телеграм
         document.getElementById('landingOrderForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
             const product = document.getElementById('orderProduct').value;
             const name = document.getElementById('userName').value;
             const phone = document.getElementById('userPhone').value;
             const status = document.getElementById('statusMessage');
             
-            // Закидываем текст внутрь модалки
+            // 1. Формируем красивый текст для попапа на сайте
             status.innerHTML = `<h3>🎉 Замовлення прийнято!</h3>
                                 <p class="popup-p">Ми вже передали вашу заявку менеджеру.</p>
                                 <hr class="popup-hr">
@@ -211,18 +212,40 @@
                                 <p class="popup-detail"><b>Ім'я:</b> ${name}</p>
                                 <p class="popup-detail"><b>Телефон:</b> ${phone}</p>`;
             
-            // Показываем плашку по центру
+            // 2. Включаем показ белого попапа на экране
             document.getElementById('popupOverlay').classList.add('active');
-            // Очищаем инпуты формы
+
+            // 3. Формируем текст сообщения для Телеграм-бота
+            const message = `🔔 Новая заявка!\n📦 Товар: ${product}\n👤 Имя: ${name}\n📞 Телефон: ${phone}`;
+            
+            // 4. Отправляем данные в Телеграм (замени ТУТ свой ТОКЕН и ID чата, если они затерлись)
+            const token = TELEGRAM_CONFIG.token;  // Или впиши сюда токен строкой 'ТВОЙ_ТОКЕН'
+            const chatId = TELEGRAM_CONFIG.chatId; // Или впиши сюда ID строкой 'ТВОЙ_ID'
+            const url = `https://telegram.org{token}/sendMessage`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message,
+                    parse_mode: 'HTML'
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    console.error('Ошибка отправки в Телеграм');
+                }
+            })
+            .catch(error => console.error('Ошибка сети:', error));
+
+            // 5. Сбрасываем поля формы
             document.getElementById('landingOrderForm').reset();
             document.getElementById('orderProduct').value = `${LANDING_CONFIG.productName} — ${LANDING_CONFIG.newPrice}`;
-        }); // <-- ВОТ ЗДЕСЬ ВСЁ ЧЁТКО ЗАКРЫЛОСЬ!
+        }); // Все скобки закрыты чётко!
 
         function closePopup() {
             document.getElementById('popupOverlay').classList.remove('active');
         }
 
         window.onload = initLanding;
-    </script>
-</body>
-</html>
