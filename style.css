@@ -1,226 +1,112 @@
-body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: var(--body-bg);
-    color: var(--main-text-color);
-    overflow-x: hidden;
+:root{
+--bg:#07070b;--card:#13121a;--card2:#21121e;--text:#fff;--muted:#c5bbc5;
+--accent:#ff246f;--accent-light:#ff79ab;--border:#69233f;
+--radius:18px;--border-width:1px;--font:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
 }
-header {
-    width: 100%;
-    padding: 25px 20px;
-    text-align: center;
-    background: var(--header-bg);
-    border-bottom: var(--block-border-size) var(--block-border-style) var(--block-border-color);
-    box-sizing: border-box;
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font)}[hidden]{display:none!important}
+a{color:inherit}.wrap{width:min(100% - 32px,800px);margin:auto}.top{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#09090e;border-bottom:1px solid #26121e}.brand{text-decoration:none;font-size:22px;font-weight:900;letter-spacing:-1px}.brand span{color:var(--accent)}.top-note{font-size:11px;color:#ddd}
+.hero{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 78% 25%,#631431 0%,#210b1a 29%,var(--bg) 66%)}
+.glow{position:absolute;inset:0;z-index:-1;background:linear-gradient(150deg,transparent 55%,#fd136322 90%)}
+.hero-inner{position:relative;width:min(100% - 28px,700px);margin:auto;min-height:calc(100svh - 48px);display:flex;flex-direction:column;justify-content:space-between;gap:6px;padding:10px 0 max(12px,env(safe-area-inset-bottom))}
+.hero-copy{position:relative;z-index:2;width:72%}.badge{display:inline-block;background:var(--accent);padding:6px 11px;border-radius:100px;font-size:clamp(10px,2.8vw,13px);font-weight:900;color:#fff;transform:rotate(-3deg)}
+h1{font-size:clamp(27px,8.7vw,57px);line-height:.99;letter-spacing:-1.4px;font-weight:1000;margin:12px 0 7px;text-shadow:0 2px 10px #0009}
+h1 em,h2 em{color:var(--accent-light);font-style:normal} .hero-copy p{color:#eee;font-size:clamp(11px,3.1vw,16px);line-height:1.35;margin:0;max-width:230px}
+.hero-product{position:absolute;right:-8%;top:5%;width:64%;height:54%;z-index:1;pointer-events:none;filter:drop-shadow(0 5px 18px #ff246f55)}.hero-product img{width:100%;height:100%;object-fit:contain;transform:rotate(-11deg)}.sale-bubble{position:absolute;right:15%;bottom:8%;background:var(--accent);border-radius:50%;padding:12px;font-size:clamp(14px,4vw,24px);font-weight:1000;transform:rotate(10deg)}
+.offer{position:relative;z-index:3;margin-top:auto;background:linear-gradient(115deg,#141019ed,#2d1024ef);border:var(--border-width) solid var(--border);border-radius:var(--radius);padding:10px 15px;box-shadow:0 5px 35px #0008}
+.offer-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.offer del{color:#aaa;font-size:clamp(13px,3.7vw,19px)}.price{font-size:clamp(39px,11.5vw,62px);font-weight:1000;letter-spacing:-2px;line-height:1.03}.price small{font-size:.5em}.off{background:var(--accent);padding:8px 12px;border-radius:12px;font-size:clamp(18px,5vw,29px);font-weight:1000}
+.count-label{font-size:clamp(11px,2.9vw,14px);color:#e9dbe4;margin:5px 0}.countdown{display:flex;align-items:center;justify-content:space-between;gap:8px}.countdown>div{display:flex;flex-direction:column;align-items:center;flex:1;background:#3c142b;border:1px solid #752447;border-radius:9px;padding:3px 5px}.countdown strong{font-size:clamp(20px,6.5vw,34px);line-height:1.1;color:#ffb2d0;font-variant-numeric:tabular-nums}.countdown small{font-size:10px;color:#ddd}.countdown b{font-size:20px;color:var(--accent-light)}.expired{font-size:12px;color:var(--accent-light)}
+.primary{display:block;width:100%;text-align:center;border:0;border-radius:12px;background:linear-gradient(110deg,var(--accent),#ff4c90);color:#fff;font-size:clamp(13px,3.8vw,17px);font-weight:950;text-decoration:none;padding:clamp(12px,3.5vw,17px);box-shadow:0 5px 22px #ff246f50;cursor:pointer}.hero-button{position:relative;z-index:3}.hero-button span{float:right}.hero-trust{display:flex;justify-content:space-around;gap:8px;font-size:clamp(9px,2.3vw,12px);color:#ded5dc}
+.section{padding:45px 0}.section-tag{color:var(--accent-light);font-size:12px;font-weight:900;letter-spacing:1px}h2{font-size:clamp(25px,6vw,36px);line-height:1.1;letter-spacing:-.7px;margin:8px 0 15px}.sub{color:var(--muted);font-size:14px}
+.order-card,.card,.review,details{background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius);padding:18px}.order-card{display:grid;gap:8px}.order-card label{font-size:13px;color:#ded5dc}.order-card input{width:100%;border:1px solid #65515c;background:#22222a;color:#fff;border-radius:11px;padding:15px;font:inherit}.order-card input:focus{outline:2px solid var(--accent)}.order-card small,.order-card #status{font-size:12px;color:var(--muted)}.order-card #status{margin:0}.trap{position:absolute!important;left:-9999px!important;width:1px!important}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{text-align:center}.card-icon{font-size:30px;color:var(--accent)}.card h3{margin:7px 0;font-size:16px}.card p{margin:0;color:var(--muted);font-size:13px}.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.gallery img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)}.reviews{display:grid;gap:10px}.review strong{font-size:15px}.review .stars{color:#ffb92e}.review p{font-size:13px;color:var(--muted)}details{margin:8px 0;padding:15px}summary{cursor:pointer;font-weight:700}details p{color:var(--muted);font-size:14px}.bottom{padding:28px 20px;margin-bottom:20px;background:linear-gradient(130deg,#4a112c,#160e1a);border:1px solid var(--border);border-radius:var(--radius);text-align:center}.bottom-price{font-size:30px;font-weight:900;margin-bottom:15px}.footer{padding:15px 0 35px;color:var(--muted);font-size:12px}
+@media(min-width:700px){.hero-inner{min-height:660px}.hero-product{right:0;width:53%;height:66%}.hero-copy{width:55%}.offer{width:52%}.hero-button{width:52%}.hero-trust{width:52%}.cards{grid-template-columns:repeat(4,1fr)}.reviews{grid-template-columns:repeat(3,1fr)}}
+@media(max-height:700px) and (max-width:699px){.hero-inner{gap:3px;padding-top:5px;padding-bottom:6px}.badge{padding:4px 9px}h1{font-size:clamp(25px,7.6vw,37px);margin:6px 0}.hero-copy p{font-size:11px}.hero-product{top:3%;height:48%}.offer{padding:7px 12px}.price{font-size:39px}.countdown strong{font-size:20px}.countdown>div{padding:2px}.primary{padding:11px}.hero-trust{font-size:9px}}
+@media(max-width:340px){.hero-copy{width:78%}.hero-product{right:-14%;width:67%}.top-note{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* FIX: компактна мобільна композиція без порожньої середини */
+@media(max-width:699px){
+ .hero-inner{
+   min-height:calc(100svh - 48px);
+   height:auto;
+   justify-content:flex-start;
+   gap:8px;
+   padding-top:12px;
+   padding-bottom:max(12px,env(safe-area-inset-bottom));
+ }
+ .hero-copy{width:76%;min-height:0}
+ .hero-copy h1{font-size:clamp(29px,8.2vw,43px);margin:10px 0 6px}
+ .hero-copy p{max-width:205px}
+ .hero-product{
+   position:relative;
+   top:auto;right:auto;
+   align-self:flex-end;
+   width:68%;
+   height:clamp(165px,28svh,250px);
+   margin-top:-22px;
+   margin-bottom:-22px;
+   flex:none;
+ }
+ .hero-product img{transform:rotate(-13deg) scale(1.08)}
+ .sale-bubble{bottom:8%;right:7%}
+ .offer{margin-top:0;width:100%}
+ .hero-button{margin-top:0}
+ .hero-trust{padding-top:1px}
 }
-.logo {
-    font-size: 24px;
-    font-weight: 800;
-    color: var(--title-color);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.subtitle {
-    color: var(--main-text-color);
-    margin: 4px 0 0 0;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-main {
-    max-width: 550px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+@media(max-width:699px) and (max-height:720px){
+ .hero-inner{gap:5px;padding-top:6px}
+ .hero-product{height:clamp(130px,24svh,190px);margin-top:-20px;margin-bottom:-22px}
+ .hero-copy h1{font-size:clamp(26px,7.5vw,35px)}
+ .offer{padding:7px 12px}
+ .countdown strong{font-size:20px}
 }
 
-/* КАРТОЧКИ КОНТЕНТА С УПРАВЛЯЕМЫМИ БОРДЕРАМИ */
-.main-offer-box, .benefits-box, .form-container {
-    background: var(--card-bg);
-    border: var(--block-border-size) var(--block-border-style) var(--block-border-color);
-    border-radius: 16px;
-    padding: 30px 20px;
-    margin: 20px 0;
-    box-sizing: border-box;
+/* Нові редаговані інформаційні блоки */
+.description-card{background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius);padding:22px;line-height:1.7;color:var(--muted)}
+.description-card p{margin:0 0 14px}.description-card ul{margin:0;padding-left:22px}.description-card li{padding:5px 0}.description-card li::marker{color:var(--accent)}
+.specs{background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius);overflow:hidden}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 16px;border-bottom:1px solid var(--border);font-size:14px}
+.spec-row:last-child{border-bottom:0}.spec-row span{color:var(--muted);flex:1}.spec-row strong{flex:1;text-align:right;font-weight:750}
+.usage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.usage-step{padding:18px;background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius)}
+.usage-number{color:var(--accent-light);font-size:28px;font-weight:1000}.usage-step h3{font-size:16px;margin:9px 0}.usage-step p{font-size:13px;color:var(--muted);margin:0;line-height:1.55}
+@media(max-width:500px){.usage{grid-template-columns:1fr}}
+
+/* Bestyshop: компактний логотип, колір від --accent */
+.brand-logo{display:inline-flex;align-items:center;gap:7px;min-width:0;max-width:70%;font-size:clamp(15px,4.4vw,22px);letter-spacing:-.7px}
+.brand-icon{width:31px;height:31px;flex:none;color:var(--text)}
+.brand-wordmark{white-space:nowrap;line-height:1;display:flex;align-items:baseline}
+.brand-wordmark strong{font-weight:900}
+.brand-domain{color:var(--accent)}
+.top-note{white-space:nowrap}
+@media(max-width:355px){.brand-logo{font-size:15px;gap:4px}.brand-icon{width:25px;height:25px}.top-note{font-size:9px}}
+
+/* Широка мобільна шапка: повернено B з кошиком */
+.top{width:100%;min-width:0;overflow:hidden}
+.brand-logo{flex:0 1 auto;max-width:none;min-width:0}
+.brand-wordmark{min-width:0;white-space:nowrap}
+.brand-icon{display:block;flex-shrink:0}
+@media(max-width:699px){
+ .top{height:54px;padding:0 12px;justify-content:flex-start}
+ .brand-logo{width:100%;max-width:100%;font-size:clamp(18px,5.6vw,25px);gap:9px;letter-spacing:-.9px}
+ .brand-icon{width:34px;height:34px}
+ .top-note{display:none}
+ .hero-inner{min-height:calc(100svh - 54px)}
 }
-.main-offer-box h1, .form-container h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin: 0 0 15px 0;
-    color: var(--title-color);
-}
-.product-lead, .form-subtitle {
-    font-size: 13.5px;
-    line-height: 1.6;
-    color: var(--main-text-color);
-    margin: 0 0 20px 0;
-    text-align: center;
+@media(max-width:360px){
+ .top{padding:0 9px}
+ .brand-logo{font-size:clamp(16px,5.1vw,19px);gap:6px}
+ .brand-icon{width:30px;height:30px}
 }
 
-/* ПЛАШКА ЦЕН */
-.price-badge-box {
-    background: var(--price-box-bg);
-    border: 1px dashed rgba(255,255,255,0.15);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-.old-price {
-    display: block;
-    text-decoration: line-through;
-    color: var(--old-price-color);
-    font-size: 13px;
-    margin-bottom: 5px;
-}
-.action-price {
-    font-size: 22px;
-    font-weight: 800;
-    color: var(--title-color);
-}
-.new-price {
-    color: var(--accent-color);
-    margin-left: 4px;
-}
+/* Акцент тільки для кошика і .shop; B та bestyshop залишаються білими */
+:root{--logo-accent:var(--accent)}
+.brand-icon{color:#fff}
+.brand-wordmark #brand-name{color:#fff}
+.brand-wordmark .brand-domain{color:var(--logo-accent)}
 
-/* КНОПКА 1 (КАПСУЛА) */
-.order-anchor-btn {
-    width: 100%;
-    padding: 15px;
-    background: var(--btn1-bg);
-    color: var(--btn1-text-color);
-    border: none;
-    border-radius: 25px;
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    text-transform: uppercase;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-    transition: background 0.2s, transform 0.1s;
-}
-.order-anchor-btn:hover { background: var(--btn1-hover-bg); }
-.order-anchor-btn:active { transform: scale(0.98); }
-
-/* ПРЕИМУЩЕСТВА */
-.benefits-box h2 {
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-    margin: 0 0 20px 0;
-    color: var(--accent-color);
-}
-.benefits-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-.benefit-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 13.5px;
-    line-height: 1.5;
-}
-.benefit-icon {
-    font-size: 18px;
-    min-width: 24px;
-    text-align: center;
-}
-.benefit-content strong {
-    color: var(--title-color);
-}
-
-/* ПОЛЯ ВВОДА (ИНПУТЫ) */
-form label { display: block; margin-bottom: 6px; color: var(--main-text-color); font-size: 12px; }
-form input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    border: 1px solid var(--input-border-color);
-    background: var(--input-bg);
-    color: var(--input-text-color);
-    font-size: 14px;
-    box-sizing: border-box;
-}
-form input:focus { border-color: var(--btn1-bg); outline: none; }
-#orderProduct { opacity: 0.7; cursor: not-allowed; }
-
-/* КНОПКА 2 (ОТПРАВКА) */
-.submit-order-btn {
-    width: 100%;
-    padding: 14px;
-    background: var(--btn2-bg);
-    border: 1px solid var(--title-color);
-    border-radius: 8px;
-    color: var(--btn2-text-color);
-    font-size: 15px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.2s;
-}
-.submit-order-btn:hover { 
-    background: var(--btn2-hover-bg); 
-    color: var(--btn2-text-hover-color); 
-}
-
-/* СТИЛИ ДЛЯ МОДНОГО ПОПАПУ ПО ЦЕНТРУ ЕКРАНА */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-}
-.popup-overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-.popup-box {
-    background: #ffffff; 
-    color: #111827;     
-    padding: 35px 25px;
-    border-radius: 20px;
-    max-width: 400px;
-    width: 90%;
-    position: relative;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    box-sizing: border-box;
-    transform: scale(0.85);
-    transition: transform 0.3s ease;
-}
-.popup-overlay.active .popup-box {
-    transform: scale(1);
-}
-.popup-close-btn {
-    position: absolute;
-    top: 12px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    font-size: 28px;
-    font-weight: 300;
-    color: #9ca3af;
-    cursor: pointer;
-    line-height: 1;
-}
-.popup-close-btn:hover { color: #111827; }
-
-#statusMessage h3 {
-    margin: 0 0 10px 0;
-    color: #10b981; 
-    font-size: 22px;
-}
-.popup-p { margin: 0 0 15px 0; color: #4b5563; font-size: 14px; }
-.popup-hr { border: none; border-top: 1px solid #e5e7eb; margin: 15px 0; }
-.popup-detail { text-align: left; margin: 6px 0; font-size: 14px; color: #111827; }
+/* Остання настройка логотипу: B + .shop акцентні, кошик білий */
+.brand-icon{color:var(--logo-accent, var(--accent))}
+.brand-icon path[stroke],.brand-icon circle{stroke:#fff;fill:#fff}
+.brand-icon path[stroke]{fill:none}
+.brand-wordmark #brand-name{color:#fff}
+.brand-wordmark .brand-domain{color:var(--logo-accent, var(--accent))}
