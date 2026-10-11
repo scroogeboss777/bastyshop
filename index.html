@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="siteTitle">Інтернет-магазин</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -30,7 +30,7 @@
             <button class="order-anchor-btn" onclick="scrollToForm()" id="buttonText">ЗАМОВИТИ БЕЗ ДЗВІНКІВ</button>
         </section>
 
-        <!-- Блок переваг (БК 1, 2, 3) -->
+        <!-- Блок переваг -->
         <section class="benefits-box">
             <h2 id="benefitsTitle">Чому цей товар такий крутий?</h2>
             <div class="benefits-list" id="benefitsContainer">
@@ -38,20 +38,20 @@
             </div>
         </section>
 
-        <!-- Форма замовлення -->
+        <!-- 3Бордер блок - Форма замовлення -->
         <section class="order-section" id="order-form-block">
             <div class="form-container">
                 <h2>Оформлення замовлення</h2>
-                <p class="form-subtitle">Заповніть форму, і замовлення відправиться в обробку</p>
+                <p class="form-subtitle" id="formSubtitle">Заповніть форму, і замовлення відправиться в обробку</p>
                 
                 <form id="landingOrderForm">
-                    <label for="orderProduct">Обраний товар:</label>
+                    <label for="orderProduct" id="labelProduct">Обраний товар:</label>
                     <input type="text" id="orderProduct" readonly value="">
                     
                     <input type="text" id="userName" placeholder="Ваше Ім'я" required>
                     <input type="tel" id="userPhone" placeholder="Номер телефону" required>
                     
-                    <button type="submit" class="submit-order-btn">Підтвердити замовлення 🚀</button>
+                    <button type="submit" class="submit-order-btn" id="submitBtnText">Підтвердити замовлення 🚀</button>
                 </form>
                 <div id="statusMessage" class="hidden"></div>
             </div>
@@ -59,23 +59,46 @@
     </main>
 
     <!-- ================================================================= -->
-    <!-- БЛОК НАПОВНЕННЯ ТА НАЛАШТУВАННЯ ДИЗАЙНУ (РЕДАГУЙ ТУТ) -->
+    <!-- ПОЛНОЦЕННЫЙ ПУЛЬТ УПРАВЛЕНИЯ САЙТОМ (РЕДАКТИРУЙ ТУТ) -->
     <!-- ================================================================= -->
     <script>
         const LANDING_CONFIG = {
-            // 🎨 НАЛАШТУВАННЯ КОЛЬОРІВ САЙТУ (Можна вставляти HEX, rgb або назви кольорів)
+            // 🎨 НАСТРОЙКА ЦВЕТОВ, БОРДЕРОВ И ДЕТАЛЕЙ
             styles: {
-                bodyBg: "#0b0f17",        // Головний фон сайту (зараз глибокий темний)
-                cardBg: "#212024",        // Фон карток та блоків
-                textColor: "#ffffff",     // Колір звичайного тексту
-                titleColor: "#ffffff",    // Колір заголовків (H1, назви товарів)
-                accentColor: "#ff00aa",   // Акцентний колір (Ціна, заголовок переваг)
-                btnBg: "#ff7400",         // Колір головної кнопки капсули
-                btnHoverBg: "#ac5105",    // Колір головної кнопки при наведенні
-                btnTextColor: "#ffffff"   // Колір тексту на кнопці
+                bodyBg: "#0b0f17",          // Главный фон сайта
+                headerBg: "#111827",        // Фон шапки сверху
+                cardBg: "#111827",          // Фон основных блоков (оффер, преимущества, форма)
+                priceBoxBg: "#1f2937",      // Фон плашки с ценами
+                
+                // Тексты и Акценты
+                mainTextColor: "#ffffff",   // Цвет обычного текста
+                titleColor: "#ffffff",      // Цвет заголовков (H1, названий блоков)
+                accentColor: "#10b981",     // Акцентный цвет (зеленая цена, заголовок преимуществ)
+                oldPriceColor: "#ef4444",   // Цвет зачёркнутой старой цены (теперь меняется отдельно!)
+                
+                // 🛑 НАСТРОЙКА БОРДЕРОВ (РАМОК БЛОКОВ)
+                blockBorderSize: "1px",     // Толщина рамок у блоков (например: 1px, 2px, 3px)
+                blockBorderStyle: "solid",  // Стиль рамки блоков (solid — сплошная, dashed — пунктир)
+                blockBorderColor: "#1f2937", // Цвет рамок вокруг блоков хедера и карточек
+                
+                // Поля ввода (Инпуты)
+                inputBg: "#1f2937",         // Фон полей ввода имени и телефона
+                inputTextColor: "#ffffff",  // Цвет текста, который вводит покупатель
+                inputBorderColor: "#374151", // Цвет рамки вокруг инпутов
+                
+                // Кнопка 1 ("Заказать без звонков")
+                btn1Bg: "#6366f1",          
+                btn1HoverBg: "#4f46e5",     
+                btn1TextColor: "#ffffff",   
+                
+                // Кнопка 2 (Нижняя кнопка формы)
+                btn2Bg: "#111827",          
+                btn2HoverBg: "#ffffff",     
+                btn2TextColor: "#ffffff",   
+                btn2TextHoverColor: "#111827" 
             },
 
-            // 📝 НАЛАШТУВАННЯ ТЕКСТУ ТА КОНТЕНТУ
+            // 📝 НАСТРОЙКА ТЕКСТА И ОФФЕРА
             pageTitle: "Офіційний магазин | Купити вигідно",
             logoText: "bastyshop.shop",
             subtitleText: "ТОВАРИ, ЯКІ ТИ ЛЮБИШ",
@@ -96,25 +119,40 @@
         };
 
         // =================================================================
-        // ЛОГІКА СКРИПТА (АВТОМАТИЧНО ЗАСТОСОВУЄ ЦВЕТА И ТЕКСТЫ)
+        // ЛОГИКА ДИНАМИЧЕСКОГО ПЕРЕКРАШИВАНИЯ И СТИЛИЗАЦИИ
         // =================================================================
         function applyStyles() {
             const root = document.documentElement;
             const s = LANDING_CONFIG.styles;
             
-            // Передаємо кольори з конфігу в CSS
             root.style.setProperty('--body-bg', s.bodyBg);
+            root.style.setProperty('--header-bg', s.headerBg);
             root.style.setProperty('--card-bg', s.cardBg);
-            root.style.setProperty('--text-color', s.textColor);
+            root.style.setProperty('--price-box-bg', s.priceBoxBg);
+            root.style.setProperty('--main-text-color', s.mainTextColor);
             root.style.setProperty('--title-color', s.titleColor);
             root.style.setProperty('--accent-color', s.accentColor);
-            root.style.setProperty('--btn-bg', s.btnBg);
-            root.style.setProperty('--btn-hover-bg', s.btnHoverBg);
-            root.style.setProperty('--btn-text-color', s.btnTextColor);
+            root.style.setProperty('--old-price-color', s.oldPriceColor);
+            
+            // Передаем параметры бордеров
+            root.style.setProperty('--block-border-size', s.blockBorderSize);
+            root.style.setProperty('--block-border-style', s.blockBorderStyle);
+            root.style.setProperty('--block-border-color', s.blockBorderColor);
+            
+            root.style.setProperty('--input-bg', s.inputBg);
+            root.style.setProperty('--input-text-color', s.inputTextColor);
+            root.style.setProperty('--input-border-color', s.inputBorderColor);
+            root.style.setProperty('--btn1-bg', s.btn1Bg);
+            root.style.setProperty('--btn1-hover-bg', s.btn1HoverBg);
+            root.style.setProperty('--btn1-text-color', s.btn1TextColor);
+            root.style.setProperty('--btn2-bg', s.btn2Bg);
+            root.style.setProperty('--btn2-hover-bg', s.btn2HoverBg);
+            root.style.setProperty('--btn2-text-color', s.btn2TextColor);
+            root.style.setProperty('--btn2-text-hover-color', s.btn2TextHoverColor);
         }
 
         function initLanding() {
-            applyStyles(); // Спочатку натягуємо кольори
+            applyStyles();
 
             document.title = LANDING_CONFIG.pageTitle;
             document.getElementById('mainLogo').innerText = LANDING_CONFIG.logoText;
@@ -153,17 +191,3 @@
             const product = document.getElementById('orderProduct').value;
             const name = document.getElementById('userName').value;
             const phone = document.getElementById('userPhone').value;
-            const status = document.getElementById('statusMessage');
-            
-            status.innerHTML = `<h3>🎉 Замовлення прийнято!</h3>
-                                <p><b>Товар:</b> ${product}</p>
-                                <p><b>Ім'я:</b> ${name}</p>
-                                <p><b>Телефон:</b> ${phone}</p>`;
-            status.className = "success-box";
-            status.classList.remove('hidden');
-        });
-
-        window.onload = initLanding;
-    </script>
-</body>
-</html>
