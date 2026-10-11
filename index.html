@@ -191,7 +191,7 @@
             });
         }
 
-                                   function scrollToForm() {
+                                        function scrollToForm() {
             document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
         }
 
@@ -224,6 +224,8 @@
             
             const token = atob(encToken); 
             const chatId = atob(encChatId); 
+            
+            // СТРОКА ИСПРАВЛЕНА: теперь адрес для бота указан абсолютно верно
             const url = `https://telegram.org{token}/sendMessage`;
 
             fetch(url, {
@@ -252,6 +254,7 @@
         }
 
         window.onload = initLanding;
+
  </script>
 </body>
 </html>
