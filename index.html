@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="siteTitle">Інтернет-магазин</title>
-    <link rel="stylesheet" href="style.css?v=5">
+    <!-- Добавили версию v=7, чтобы гитхаб гарантированно сбросил кэш -->
+    <link rel="stylesheet" href="style.css?v=7">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
             </div>
         </section>
 
-        <!-- 3Бордер блок - Форма замовлення -->
+        <!-- Форма замовлення -->
         <section class="order-section" id="order-form-block">
             <div class="form-container">
                 <h2>Оформлення замовлення</h2>
@@ -53,17 +54,26 @@
                     
                     <button type="submit" class="submit-order-btn" id="submitBtnText">Підтвердити замовлення 🚀</button>
                 </form>
-                <div id="statusMessage" class="hidden"></div>
             </div>
         </section>
     </main>
+
+    <!-- СПЛИВАЮЧЕ ПОПАП ВІКНО ПО ЦЕНТРУ ЕКРАНА -->
+    <div id="popupOverlay" class="popup-overlay">
+        <div class="popup-box">
+            <button class="popup-close-btn" onclick="closePopup()">&times;</button>
+            <div id="statusMessage">
+                <!-- Тут буде текст замовлення -->
+            </div>
+        </div>
+    </div>
 
     <!-- ================================================================= -->
     <!-- ПОЛНОЦЕННЫЙ ПУЛЬТ УПРАВЛЕНИЯ САЙТОМ (РЕДАКТИРУЙ ТУТ) -->
     <!-- ================================================================= -->
     <script>
         const LANDING_CONFIG = {
-            // 🎨 НАСТРОЙКА ЦВЕТОВ, БОРДЕРОВ И ДЕТАЛЕЙ
+            // 🎨 НАСТРОЙКА ЦВЕТОВ, БОРДЕРОВ И ДЕТАЛЕЙ Сайта
             styles: {
                 bodyBg: "#0b0f17",          // Главный фон сайта
                 headerBg: "#111827",        // Фон шапки сверху
@@ -71,13 +81,13 @@
                 priceBoxBg: "#1f2937",      // Фон плашки с ценами
                 
                 // Тексты и Акценты
-                mainTextColor: "#ffffff",   // Цвет обычного текста
+                mainTextColor: "#ffffff",   // Цвет обычного текста (100% сочный белый)
                 titleColor: "#ffffff",      // Цвет заголовков (H1, названий блоков)
                 accentColor: "#10b981",     // Акцентный цвет (зеленая цена, заголовок преимуществ)
-                oldPriceColor: "#ef4444",   // Цвет зачёркнутой старой цены (теперь меняется отдельно!)
+                oldPriceColor: "#ef4444",   // Цвет зачёркнутой старой цены
                 
                 // 🛑 НАСТРОЙКА БОРДЕРОВ (РАМОК БЛОКОВ)
-                blockBorderSize: "1px",     // Толщина рамок у блоков (например: 1px, 2px, 3px)
+                blockBorderSize: "1px",     // Толщина рамок блоков (1px, 2px, 3px и т.д.)
                 blockBorderStyle: "solid",  // Стиль рамки блоков (solid — сплошная, dashed — пунктир)
                 blockBorderColor: "#1f2937", // Цвет рамок вокруг блоков хедера и карточек
                 
@@ -100,7 +110,7 @@
 
             // 📝 НАСТРОЙКА ТЕКСТА И ОФФЕРА
             pageTitle: "Офіційний магазин | Купити вигідно",
-            logoText: "bastyshop.shop",
+            logoText: "bestyshop.shop",
             subtitleText: "ТОВАРИ, ЯКІ ТИ ЛЮБИШ",
             productName: "🌌 Лазерний проектор Астронавт",
             productDesc: "Перетвори свою кімнату на справжній відкритий космос! 8 неймовірних режимів яскравих туманностей, космічні зірки та зручне керування з пульта.",
@@ -118,7 +128,7 @@
             ]
         };
 
-                // =================================================================
+        // =================================================================
         // ЛОГИКА ДИНАМИЧЕСКОГО ПЕРЕКРАШИВАНИЯ И СТИЛИЗАЦИИ
         // =================================================================
         function applyStyles() {
@@ -181,11 +191,11 @@
             });
         }
 
-        function scrollToForm() {
+               function scrollToForm() {
             document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Офiційна обробка форми (Тепер з косими лапками, нічого не зламається)
+        // Обработка формы и вызов попапа (ВСЕ СКОБКИ И КЛАССЫ ЗАКРЫТЫ)
         document.getElementById('landingOrderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const product = document.getElementById('orderProduct').value;
@@ -193,13 +203,24 @@
             const phone = document.getElementById('userPhone').value;
             const status = document.getElementById('statusMessage');
             
+            // Закидываем текст внутрь модалки
             status.innerHTML = `<h3>🎉 Замовлення прийнято!</h3>
-                                <p><b>Товар:</b> ${product}</p>
-                                <p><b>Ім'я:</b> ${name}</p>
-                                <p><b>Телефон:</b> ${phone}</p>`;
-            status.className = "success-box";
-            status.classList.remove('hidden');
-        });
+                                <p class="popup-p">Ми вже передали вашу заявку менеджеру.</p>
+                                <hr class="popup-hr">
+                                <p class="popup-detail"><b>Товар:</b> ${product}</p>
+                                <p class="popup-detail"><b>Ім'я:</b> ${name}</p>
+                                <p class="popup-detail"><b>Телефон:</b> ${phone}</p>`;
+            
+            // Показываем плашку по центру
+            document.getElementById('popupOverlay').classList.add('active');
+            // Очищаем инпуты формы
+            document.getElementById('landingOrderForm').reset();
+            document.getElementById('orderProduct').value = `${LANDING_CONFIG.productName} — ${LANDING_CONFIG.newPrice}`;
+        }); // <-- ВОТ ЗДЕСЬ ВСЁ ЧЁТКО ЗАКРЫЛОСЬ!
+
+        function closePopup() {
+            document.getElementById('popupOverlay').classList.remove('active');
+        }
 
         window.onload = initLanding;
     </script>
