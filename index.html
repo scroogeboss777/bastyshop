@@ -118,7 +118,7 @@
             ]
         };
 
-        // =================================================================
+                // =================================================================
         // ЛОГИКА ДИНАМИЧЕСКОГО ПЕРЕКРАШИВАНИЯ И СТИЛИЗАЦИИ
         // =================================================================
         function applyStyles() {
@@ -134,7 +134,6 @@
             root.style.setProperty('--accent-color', s.accentColor);
             root.style.setProperty('--old-price-color', s.oldPriceColor);
             
-            // Передаем параметры бордеров
             root.style.setProperty('--block-border-size', s.blockBorderSize);
             root.style.setProperty('--block-border-style', s.blockBorderStyle);
             root.style.setProperty('--block-border-color', s.blockBorderColor);
@@ -186,8 +185,23 @@
             document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // Офiційна обробка форми (Тепер з косими лапками, нічого не зламається)
         document.getElementById('landingOrderForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const product = document.getElementById('orderProduct').value;
             const name = document.getElementById('userName').value;
             const phone = document.getElementById('userPhone').value;
+            const status = document.getElementById('statusMessage');
+            
+            status.innerHTML = `<h3>🎉 Замовлення прийнято!</h3>
+                                <p><b>Товар:</b> ${product}</p>
+                                <p><b>Ім'я:</b> ${name}</p>
+                                <p><b>Телефон:</b> ${phone}</p>`;
+            status.className = "success-box";
+            status.classList.remove('hidden');
+        });
+
+        window.onload = initLanding;
+    </script>
+</body>
+</html>
