@@ -1,180 +1,195 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>bastyshop.shop — Товари, які ти любиш</title>
-  <style>
-    :root {
-      --bg-color: #0b0c10;
-      --card-bg: #1f2833;
-      --text-main: #c5c6c7;
-      --text-bright: #ffffff;
-      --accent: #a370f7; /* Твой фирменный фиолетовый из логотипа */
-      --accent-neon: #66fcf1;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, sans-serif; }
-    body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-bottom: 50px; }
-    .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-    
-    /* Шапка с логотипом */
-    .header { text-align: center; padding: 20px 0; margin-bottom: 20px; }
-    .logo-text { font-size: 28px; font-weight: bold; color: var(--text-bright); }
-    .logo-text span { color: var(--accent); }
-    .tagline { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-main); margin-top: 5px; }
-
-    /* Блок 1: Главный экран */
-    .hero { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, var(--card-bg) 0%, var(--bg-color) 100%); border-radius: 20px; margin-bottom: 25px; border: 1px solid rgba(163, 112, 247, 0.2); }
-    .hero h1 { color: var(--text-bright); font-size: 24px; margin-bottom: 15px; }
-    .hero p { font-size: 15px; margin-bottom: 20px; }
-    
-    /* Цены и скидки */
-    .price-box { background: rgba(163, 112, 247, 0.1); padding: 15px; border-radius: 15px; margin: 20px 0; border: 1px dashed var(--accent); }
-    .old-price { text-decoration: line-through; color: #ff5252; font-size: 18px; margin-bottom: 5px; }
-    .new-price { font-size: 32px; color: var(--text-bright); font-weight: bold; }
-    .new-price span { color: var(--accent-neon); }
-
-    .btn { display: inline-block; background-color: var(--accent); color: #fff; padding: 16px 30px; font-weight: bold; text-decoration: none; border-radius: 30px; text-transform: uppercase; border: none; cursor: pointer; width: 100%; font-size: 16px; transition: 0.3s; text-align: center; box-shadow: 0 4px 15px rgba(163, 112, 247, 0.4); }
-    .btn:hover { background-color: #b58eff; transform: translateY(-2px); }
-
-    /* Блок 2: Преимущества */
-    .card { background-color: var(--card-bg); padding: 25px; border-radius: 20px; margin-bottom: 25px; }
-    .card h2 { color: var(--accent-neon); font-size: 20px; margin-bottom: 15px; text-align: center; }
-    .feature-item { margin-bottom: 15px; font-size: 15px; display: flex; align-items: flex-start; }
-    .feature-item::before { content: "🔮"; margin-right: 12px; font-size: 16px; }
-
-    /* Блок 3: Видео/Фото заглушка */
-    .media-box { text-align: center; }
-    .image-placeholder { width: 100%; height: auto; min-height: 250px; background-color: rgba(0,0,0,0.3); border-radius: 15px; border: 1px dashed var(--accent-neon); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; color: var(--accent-neon); }
-
-    /* Блок 4: Форма заказа */
-    .form-group { margin-bottom: 18px; text-align: left; }
-    .form-group label { display: block; margin-bottom: 8px; font-size: 14px; color: var(--text-bright); }
-    .form-group input, .form-group select { width: 100%; padding: 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); background-color: var(--bg-color); color: #fff; font-size: 16px; outline: none; }
-    .form-group input:focus { border-color: var(--accent); }
-    
-    /* Блок 5: Подвал */
-    .footer { text-align: center; padding-top: 10px; }
-    .tg-contact { display: inline-flex; align-items: center; color: var(--accent-neon); text-decoration: none; font-weight: bold; margin-top: 10px; }
-    .tg-contact:hover { text-decoration: underline; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="siteTitle">Інтернет-магазин</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
-  <div class="container">
-    
-    <!-- ШАПКА МАГАЗИНА -->
-    <header class="header">
-      <div class="logo-text">basty<span>shop</span>.shop</div>
-      <div class="tagline">Товари, які ти любиш</div>
+    <header>
+        <div class="logo" id="mainLogo">✨ BESTY SHOP</div>
+        <p class="subtitle" id="mainSubtitle">Якісні товари за найкращими цінами</p>
     </header>
 
-    <!-- БЛОК 1: ГЛАВНЫЙ ЭКРАН -->
-    <section class="hero">
-      <h1>🌌 Лазерний проектор Астронавт</h1>
-      <p>Перетвори свою кімнату на справжній відкритий космос! 8 неймовірних режимів яскравих туманностей, космічні зірки та зручне керування з пульта.</p>
-      
-      <div class="price-box">
-        <div class="old-price">❌ Стара ціна: 840 грн</div>
-        <div class="new-price">🔥 Акція: <span>499 грн</span></div>
-      </div>
-      
-      <a href="#order-form" class="btn">Замовити без дзвінків</a>
-    </section>
+    <main>
+        <section class="catalog-section">
+            <h2 class="section-title" id="catalogTitle">Наші пропозиції</h2>
+            
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+                <button class="carousel-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+                
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Карточки товаров генерируются автоматически из конфига внизу -->
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- БЛОК 2: ХАРАКТЕРИСТИКИ -->
-    <section class="card">
-      <h2>Чому цей нічник такий крутий?</h2>
-      <div class="feature-item"><b>8 режимів світіння:</b> створюй космічну атмосферу під будь-який настрій.</div>
-      <div class="feature-item"><b>Пульт ДУ в комплекті:</b> змінюй кольори, яскравість та швидкість не встаючи з ліжка.</div>
-      <div class="feature-item"><b>Обертання голови на 360°:</b> направляй проекцію на стелю, стіни або підлогу під будь-яким кутом.</div>
-      <div class="feature-item"><b>Ідеальний подарунок:</b> викликає повний захват як у маленьких дітей, так и у дорослих.</div>
-    </section>
+        <section class="order-section" id="order-form-block">
+            <div class="form-container">
+                <h2>Оформлення замовлення</h2>
+                <p class="form-subtitle">Заповніть форму, і наш менеджер зв'яжеться з вами</p>
+                
+                <form id="catalogOrderForm">
+                    <label for="selectedProduct">Обраний товар:</label>
+                    <input type="text" id="selectedProduct" readonly value="">
+                    
+                    <input type="text" id="userName" placeholder="Ваше Ім'я" required>
+                    <input type="tel" id="userPhone" placeholder="Номер телефону" required>
+                    
+                    <button type="submit" class="submit-order-btn">Підтвердити замовлення 🚀</button>
+                </form>
+                <div id="statusMessage" class="hidden"></div>
+            </div>
+        </section>
+    </main>
 
-    <!-- БЛОК 3: ЖИВЫЕ ФОТО -->
-    <section class="card media-box">
-      <h2>Який він має вигляд уживу</h2>
-      <div class="image-placeholder">
-        <span>📸 Тут буде фото або GIF роботи нічника у темряві</span>
-      </div>
-    </section>
+    <!-- ================================================================= -->
+    <!-- БЛОК НАПОВНЕННЯ САЙТУ (РЕДАГУЙ ТІЛЬКИ ЦЕЙ БЛОК ВНИЗУ) -->
+    <!-- ================================================================= -->
+    <script>
+        const SHOP_CONFIG = {
+            // 1. Шапка та назва сайту
+            title: "Besty Shop | Офіційний магазин",
+            logo: "📦 BESTY SHOP",
+            subtitle: "Тільки перевірені товари • Швидка доставка",
+            catalogTitle: "Оберіть ваш варіант комплектації",
 
-    <!-- БЛОК 4: ФОРМА ЗАКАЗА -->
-    <section class="card" id="order-form">
-      <h2 style="margin-bottom: 5px;">Швидке замовлення</h2>
-      <p style="text-align: center; font-size: 13px; color: var(--accent-neon); margin-bottom: 20px;">Ніяких нав'язливих дзвінків! Після відправки форми ми відразу напишемо вам у Telegram.</p>
-      
-      <form id="tg-form">
-        <div class="form-group">
-          <label>Твоє Ім'я</label>
-          <input type="text" id="user-name" placeholder="Введіть ім'я" required>
-        </div>
-        <div class="form-group">
-          <label>Номер телефону (з прив'язаним Telegram)</label>
-          <input type="tel" id="user-phone" placeholder="+380" required>
-        </div>
-        <div class="form-group">
-          <label>Варіант оплати</label>
-          <select id="user-payment">
-            <option value="Аванс 150 грн (наложка)">Частична предоплата 150 грн (решта на пошті)</option>
-            <option value="100% оплата на карту">Повна оплата на карту (Безкоштовна доставка)</option>
-          </select>
-        </div>
-        <button type="submit" class="btn">Підтвердити замовлення</button>
-      </form>
-    </section>
+            // 2. Список товарів (Каталог). Можеш міняти, видаляти або додавати нові блоки { }
+            products: [
+                {
+                    badge: "Популярно",
+                    img: "https://ibb.co",
+                    title: "Комплект 'Mini'",
+                    desc: "Базовий варіант для невеликих локацій. Оптимальне співвідношення ціни та функціоналу.",
+                    oldPrice: "499 грн",
+                    newPrice: "199 грн"
+                },
+                {
+                    badge: "Акція",
+                    img: "https://ibb.co",
+                    title: "Комплект 'Light'",
+                    desc: "Стандартний набір, який включає все необхідне для швидкого старту та використання.",
+                    oldPrice: "599 грн",
+                    newPrice: "299 грн"
+                },
+                {
+                    badge: "Хіт продажів",
+                    img: "https://ibb.co",
+                    title: "Комплект 'Comfort'",
+                    desc: "Оптимальний вибір більшості покупців. Покращена комплектація та розширена гарантія.",
+                    oldPrice: "899 грн",
+                    newPrice: "499 грн",
+                    isFeatured: true // Цей товар буде стартовим по центру
+                },
+                {
+                    badge: "Максимум",
+                    img: "https://ibb.co",
+                    title: "Комплект 'Smart Pro'",
+                    desc: "Преміальна версія з максимальними можливостями та інтелектуальним керуванням.",
+                    oldPrice: "1399 грн",
+                    newPrice: "799 грн"
+                },
+                {
+                    badge: "Преміум",
+                    img: "https://ibb.co",
+                    title: "Комплект 'Mega Smart'",
+                    desc: "Ексклюзивний набір для професійного використання. Максимальний об'єм та потужність.",
+                    oldPrice: "1799 грн",
+                    newPrice: "999 грн"
+                }
+            ]
+        };
 
-    <!-- БЛОК 5: ПОДВАЛ -->
-    <footer class="footer">
-      <p>Маєш питання щодо налаштування чи доставки?</p>
-      <a href="https://t.me" class="tg-contact" target="_blank">💬 Написати менеджеру в Telegram</a>
-    </footer>
+        // =================================================================
+        // ЛОГІКА РОБОТИ САЙТУ (СЮДИ МОЖНА НЕ ЛАЗИТИ)
+        // =================================================================
+        let currentIndex = 0;
 
-  </div>
+        function initShop() {
+            document.title = SHOP_CONFIG.title;
+            document.getElementById('mainLogo').innerText = SHOP_CONFIG.logo;
+            document.getElementById('mainSubtitle').innerText = SHOP_CONFIG.subtitle;
+            document.getElementById('catalogTitle').innerText = SHOP_CONFIG.catalogTitle;
 
-  <!-- СКРИПТ ОТПРАВКИ ДАННЫХ В ТВОЙ ТЕЛЕГРАМ -->
-   <script>
-  document.getElementById('tg-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const name = document.getElementById('user-name').value;
-    const phone = document.getElementById('user-phone').value;
-    const payment = document.getElementById('user-payment').value;
+            const track = document.getElementById('carouselTrack');
+            track.innerHTML = '';
 
-    const message = `🛍️ **НОВЕ ЗАМОВЛЕННЯ: АСТРОНАВТ**\n\n👤 Ім'я: ${name}\n📞 Телефон: ${phone}\n💳 Оплата: ${payment}`;
+            SHOP_CONFIG.products.forEach((prod, index) => {
+                if (prod.isFeatured) currentIndex = index;
 
-       const CHAT_ID = '509098704';
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="badge">${prod.badge}</div>
+                    <div class="product-img-block">
+                        <img src="${prod.img}" alt="${prod.title}">
+                    </div>
+                    <h3>${prod.title}</h3>
+                    <p class="card-desc">${prod.desc}</p>
+                    <div class="card-price">
+                        <span class="old-p">${prod.oldPrice}</span>
+                        <span class="new-p">${prod.newPrice}</span>
+                    </div>
+                    <button class="select-btn ${prod.isFeatured ? 'dynamic-btn' : ''}" onclick="selectProduct('${prod.title} - ${prod.newPrice}')">Хочу цей</button>
+                `;
+                track.appendChild(card);
+            });
 
-    // Твой токен в зашифрованном виде. Роботы GitHub проходят мимо.
-    const encodedToken = 'ODgwNjE4OTkzMTpBQUdxOGtaQmllV3h0SU9HNzVCMG1VbHV5WWlKb3dmaFkzZw==';
-    const decodedToken = atob(encodedToken);
+            updateCarousel();
+        }
 
-    const domain = ['api', 'telegram', 'org'].join('.');
-    const fullUrl = 'https://' + domain + '/bot' + decodedToken + '/sendMessage';
+        function updateCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const cards = document.querySelectorAll('.product-card');
+            
+            cards.forEach((card, index) => {
+                card.classList.remove('active');
+                if (index === currentIndex) card.classList.add('active');
+            });
 
-    try {
-      const response = await fetch(fullUrl, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message,
-          parse_mode: 'Markdown'
-        })
-      });
+            const cardWidth = 330; 
+            const offset = -(currentIndex * cardWidth) + cardWidth; 
+            track.style.transform = `translateX(${offset}px)`;
+            
+            // Автопідстановка назви товару у форму
+            const activeProd = SHOP_CONFIG.products[currentIndex];
+            document.getElementById('selectedProduct').value = `${activeProd.title} - ${activeProd.newPrice}`;
+        }
 
-      if (response.ok) {
-        alert('🎉 Заявку прийнято! Ми вже пишемо вам у Telegram.');
-        document.getElementById('tg-form').reset();
-      } else {
-        alert('Помилка відправки. Код статусу: ' + response.status);
-      }
-    } catch (error) {
-      alert('Сталася помилка з\'єднання. Перевірте консоль.');
-    }
-  });
-</script>
+        function changeSlide(direction) {
+            const cards = document.querySelectorAll('.product-card');
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = 0;
+            if (currentIndex >= cards.length) currentIndex = cards.length - 1;
+            updateCarousel();
+        }
 
+        function selectProduct(productName) {
+            document.getElementById('selectedProduct').value = productName;
+            document.getElementById('order-form-block').scrollIntoView({ behavior: 'smooth' });
+        }
 
+        document.getElementById('catalogOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const product = document.getElementById('selectedProduct').value;
+            const name = document.getElementById('userName').value;
+            const phone = document.getElementById('userPhone').value;
+            
+            const status = document.getElementById('statusMessage');
+            status.innerHTML = `<h3>🎉 Замовлення прийнято!</h3>
+                                <p><b>Товар:</b> ${product}</p>
+                                <p><b>Покупець:</b> ${name}</p>
+                                <p><b>Телефон:</b> ${phone}</p>`;
+            status.className = "success-box";
+            status.classList.remove('hidden');
+        });
+
+        window.onload = initShop;
+    </script>
 </body>
 </html>
