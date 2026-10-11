@@ -1,0 +1,18 @@
+BESTYSHOP — GOOGLE APPS SCRIPT
+
+1. Откройте https://script.google.com/ и создайте New project.
+2. Замените содержимое Code.gs кодом из этого файла Code.gs.
+3. Project Settings (шестерёнка) → Script Properties → Add script property:
+   TELEGRAM_BOT_TOKEN = токен из @BotFather
+   TELEGRAM_CHAT_ID = ваш числовой Chat ID
+4. Deploy → New deployment → Select type: Web app.
+   Execute as: Me
+   Who has access: Anyone
+   Нажмите Deploy, выдайте разрешения и скопируйте Web app URL, заканчивающийся /exec.
+5. В файле config.js сайта замените PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE на URL из шага 4.
+6. На GitHub замените config.js и script.js; папку google-apps-script с секретами НЕ загружайте (здесь секретов нет, но она не нужна сайту).
+7. Сделайте тестовый заказ и проверьте сообщение в Telegram.
+
+ВАЖНО: браузер отправляет запрос с mode:no-cors. Поэтому страница не может подтвердить, что Telegram принял сообщение. Проверяйте тестом и журналом Executions в Google Apps Script.
+Публичный веб-обработчик может получать спам. Для серьёзного трафика добавьте CAPTCHA, лимиты и серверную проверку цены/товара.
+Токен бота храните только в Script Properties. Не присылайте токен в чат.

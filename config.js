@@ -49,5 +49,5 @@ window.SITE = {
   bottomTitle:"НЕ ВІДКЛАДАЙ СВОЮ ПОКУПКУ!",
   // Встановіть справжній термін акції; порожнє значення приховує таймер
   saleEndsAt:"2026-12-31T23:59:00+02:00",
-  apiUrl:"/api/telegram"
+  apiUrl:"https://script.google.com/macros/s/AKfycbzUKnZp67QUE_7rRtBNDiCjgljgdW7dnbDwXzoFmXdBqAurzgqUy6arn3ZFtGcBOdvPWQ/exec"
 };
