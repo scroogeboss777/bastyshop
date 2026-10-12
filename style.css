@@ -110,3 +110,13 @@ h1 em,h2 em{color:var(--accent-light);font-style:normal} .hero-copy p{color:#eee
 .brand-icon path[stroke]{fill:none}
 .brand-wordmark #brand-name{color:#fff}
 .brand-wordmark .brand-domain{color:var(--logo-accent, var(--accent))}
+
+/* Contact preference additions */
+.contact-choice{border:1px solid rgba(160,160,180,.3);border-radius:14px;padding:14px;margin:12px 0 16px;display:flex;gap:10px;flex-wrap:wrap}
+.contact-choice legend{padding:0 6px;font-weight:700}
+.contact-choice label{display:inline-flex;align-items:center;gap:7px;cursor:pointer;padding:7px 10px;border-radius:9px;background:rgba(150,150,160,.1)}
+.contact-choice input{width:auto!important;min-width:0!important;accent-color:#a65cff}
+#telegram-handle-wrap[hidden]{display:none}
+#telegram-handle-wrap small{display:block;margin:5px 0 12px;opacity:.75}
+.prepay-info{padding:13px 15px;border-radius:12px;background:rgba(166,92,255,.1);line-height:1.5;margin:12px 0}
+.prepay-info strong,.prepay-info span{display:block}

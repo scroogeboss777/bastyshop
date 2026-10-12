@@ -17,7 +17,13 @@ function doPost(e) {
     if (!token || !chat) throw new Error('Missing Telegram configuration');
     var product = String(p.product || 'Товар').slice(0, 150);
     var price = String(p.price || '').slice(0, 30);
-    var message = '🛒 НОВЕ ЗАМОВЛЕННЯ\\n\\n👤 Ім’я: ' + name + '\\n📞 Телефон: ' + phone + '\\n📦 Товар: ' + product + '\\n💰 Ціна: ' + price + ' грн';
+    var method = String(p.contact_method || '').toLowerCase();
+    var methodLabel = {viber:'Viber',telegram:'Telegram',sms:'SMS'}[method] || 'Не вказано';
+    var username = String(p.telegram_username || '').trim();
+    if (method === 'telegram' && !/^@?[a-zA-Z0-9_]{5,32}$/.test(username)) return ContentService.createTextOutput('INVALID');
+    if (method === 'telegram' && username.charAt(0) !== '@') username = '@' + username;
+    var contactDetails = '\\n💬 Зв’язок: ' + methodLabel + (method === 'telegram' ? '\\n🔗 Telegram: ' + username : '');
+    var message = '🛒 НОВЕ ЗАМОВЛЕННЯ\\n\\n👤 Ім’я: ' + name + '\\n📞 Телефон: ' + phone + '\\n📦 Товар: ' + product + '\\n💰 Ціна: ' + price + ' грн' + contactDetails;
     var response = UrlFetchApp.fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
       method: 'post',
       contentType: 'application/json',
