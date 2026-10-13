@@ -9,8 +9,8 @@ window.SITE = {
   oldPrice:1299,
   price:649,
   currency:"грн",
-  heroImage:"images/geemy-original.jpg", // замініть фото на власне
-  gallery:["images/geemy-original.jpg","images/geemy-original.jpg"],
+  heroImage:"images/hero-model.jpg", // замініть фото на власне
+  gallery:["images/gallery-01.jpg","images/gallery-02.jpg","images/gallery-03.jpg","images/gallery-04.jpg","images/gallery-05.jpg"],
   benefits:[
     {icon:"〰️",title:"Три хвилі одразу",text:"Три робочі поверхні для хвилястої укладки."},
     {icon:"🌡️",title:"2 режими",text:"Нагрів до 180 °C або 210 °C."},
@@ -48,6 +48,6 @@ window.SITE = {
   sections:{benefits:true,gallery:true,reviews:false,description:true,specs:true,usage:true},
   bottomTitle:"НЕ ВІДКЛАДАЙ СВОЮ ПОКУПКУ!",
   // Встановіть справжній термін акції; порожнє значення приховує таймер
-  saleEndsAt:"2026-12-31T23:59:00+02:00",
+  saleEndsAt:"2026-10-22T12:00:00+03:00",
   apiUrl:"https://script.google.com/macros/s/AKfycbzUKnZp67QUE_7rRtBNDiCjgljgdW7dnbDwXzoFmXdBqAurzgqUy6arn3ZFtGcBOdvPWQ/exec"
 };

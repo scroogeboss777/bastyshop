@@ -1,20 +1,748 @@
-<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07070b"><title>Акційна пропозиція</title><link rel="stylesheet" href="style.css?v=contact3"><script defer src="config.js?v=restore2"></script><script defer src="script.js?v=contact3"></script></head><body>
+<!doctype html><html lang="uk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07070b"><title>Акційна пропозиція</title><style>
+:root{
+--bg:#07070b;--card:#13121a;--card2:#21121e;--text:#fff;--muted:#c5bbc5;
+--accent:#ff246f;--accent-light:#ff79ab;--border:#69233f;
+--radius:18px;--border-width:1px;--font:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font)}[hidden]{display:none!important}
+a{color:inherit}.wrap{width:min(100% - 32px,800px);margin:auto}.top{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#09090e;border-bottom:1px solid #26121e}.brand{text-decoration:none;font-size:22px;font-weight:900;letter-spacing:-1px}.brand span{color:var(--accent)}.top-note{font-size:11px;color:#ddd}
+.hero{position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 78% 25%,#631431 0%,#210b1a 29%,var(--bg) 66%)}
+.glow{position:absolute;inset:0;z-index:-1;background:linear-gradient(150deg,transparent 55%,#fd136322 90%)}
+.hero-inner{position:relative;width:min(100% - 28px,700px);margin:auto;min-height:calc(100svh - 48px);display:flex;flex-direction:column;justify-content:space-between;gap:6px;padding:10px 0 max(12px,env(safe-area-inset-bottom))}
+.hero-copy{position:relative;z-index:2;width:72%}.badge{display:inline-block;background:var(--accent);padding:6px 11px;border-radius:100px;font-size:clamp(10px,2.8vw,13px);font-weight:900;color:#fff;transform:rotate(-3deg)}
+h1{font-size:clamp(27px,8.7vw,57px);line-height:.99;letter-spacing:-1.4px;font-weight:1000;margin:12px 0 7px;text-shadow:0 2px 10px #0009}
+h1 em,h2 em{color:var(--accent-light);font-style:normal} .hero-copy p{color:#eee;font-size:clamp(11px,3.1vw,16px);line-height:1.35;margin:0;max-width:230px}
+.hero-product{position:absolute;right:-8%;top:5%;width:64%;height:54%;z-index:1;pointer-events:none;filter:drop-shadow(0 5px 18px #ff246f55)}.hero-product img{width:100%;height:100%;object-fit:contain;transform:rotate(-11deg)}.sale-bubble{position:absolute;right:15%;bottom:8%;background:var(--accent);border-radius:50%;padding:12px;font-size:clamp(14px,4vw,24px);font-weight:1000;transform:rotate(10deg)}
+.offer{position:relative;z-index:3;margin-top:auto;background:linear-gradient(115deg,#141019ed,#2d1024ef);border:var(--border-width) solid var(--border);border-radius:var(--radius);padding:10px 15px;box-shadow:0 5px 35px #0008}
+.offer-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.offer del{color:#aaa;font-size:clamp(13px,3.7vw,19px)}.price{font-size:clamp(39px,11.5vw,62px);font-weight:1000;letter-spacing:-2px;line-height:1.03}.price small{font-size:.5em}.off{background:var(--accent);padding:8px 12px;border-radius:12px;font-size:clamp(18px,5vw,29px);font-weight:1000}
+.count-label{font-size:clamp(11px,2.9vw,14px);color:#e9dbe4;margin:5px 0}.countdown{display:flex;align-items:center;justify-content:space-between;gap:8px}.countdown>div{display:flex;flex-direction:column;align-items:center;flex:1;background:#3c142b;border:1px solid #752447;border-radius:9px;padding:3px 5px}.countdown strong{font-size:clamp(20px,6.5vw,34px);line-height:1.1;color:#ffb2d0;font-variant-numeric:tabular-nums}.countdown small{font-size:10px;color:#ddd}.countdown b{font-size:20px;color:var(--accent-light)}.expired{font-size:12px;color:var(--accent-light)}
+.primary{display:block;width:100%;text-align:center;border:0;border-radius:12px;background:linear-gradient(110deg,var(--accent),#ff4c90);color:#fff;font-size:clamp(13px,3.8vw,17px);font-weight:950;text-decoration:none;padding:clamp(12px,3.5vw,17px);box-shadow:0 5px 22px #ff246f50;cursor:pointer}.hero-button{position:relative;z-index:3}.hero-button span{float:right}.hero-trust{display:flex;justify-content:space-around;gap:8px;font-size:clamp(9px,2.3vw,12px);color:#ded5dc}
+.section{padding:45px 0}.section-tag{color:var(--accent-light);font-size:12px;font-weight:900;letter-spacing:1px}h2{font-size:clamp(25px,6vw,36px);line-height:1.1;letter-spacing:-.7px;margin:8px 0 15px}.sub{color:var(--muted);font-size:14px}
+.order-card,.card,.review,details{background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius);padding:18px}.order-card{display:grid;gap:8px}.order-card label{font-size:13px;color:#ded5dc}.order-card input{width:100%;border:1px solid #65515c;background:#22222a;color:#fff;border-radius:11px;padding:15px;font:inherit}.order-card input:focus{outline:2px solid var(--accent)}.order-card small,.order-card #status{font-size:12px;color:var(--muted)}.order-card #status{margin:0}.trap{position:absolute!important;left:-9999px!important;width:1px!important}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.card{text-align:center}.card-icon{font-size:30px;color:var(--accent)}.card h3{margin:7px 0;font-size:16px}.card p{margin:0;color:var(--muted);font-size:13px}.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.gallery img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--radius);border:1px solid var(--border)}.reviews{display:grid;gap:10px}.review strong{font-size:15px}.review .stars{color:#ffb92e}.review p{font-size:13px;color:var(--muted)}details{margin:8px 0;padding:15px}summary{cursor:pointer;font-weight:700}details p{color:var(--muted);font-size:14px}.bottom{padding:28px 20px;margin-bottom:20px;background:linear-gradient(130deg,#4a112c,#160e1a);border:1px solid var(--border);border-radius:var(--radius);text-align:center}.bottom-price{font-size:30px;font-weight:900;margin-bottom:15px}.footer{padding:15px 0 35px;color:var(--muted);font-size:12px}
+@media(min-width:700px){.hero-inner{min-height:660px}.hero-product{right:0;width:53%;height:66%}.hero-copy{width:55%}.offer{width:52%}.hero-button{width:52%}.hero-trust{width:52%}.cards{grid-template-columns:repeat(4,1fr)}.reviews{grid-template-columns:repeat(3,1fr)}}
+@media(max-height:700px) and (max-width:699px){.hero-inner{gap:3px;padding-top:5px;padding-bottom:6px}.badge{padding:4px 9px}h1{font-size:clamp(25px,7.6vw,37px);margin:6px 0}.hero-copy p{font-size:11px}.hero-product{top:3%;height:48%}.offer{padding:7px 12px}.price{font-size:39px}.countdown strong{font-size:20px}.countdown>div{padding:2px}.primary{padding:11px}.hero-trust{font-size:9px}}
+@media(max-width:340px){.hero-copy{width:78%}.hero-product{right:-14%;width:67%}.top-note{font-size:10px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* FIX: компактна мобільна композиція без порожньої середини */
+@media(max-width:699px){
+ .hero-inner{
+   min-height:calc(100svh - 48px);
+   height:auto;
+   justify-content:flex-start;
+   gap:8px;
+   padding-top:12px;
+   padding-bottom:max(12px,env(safe-area-inset-bottom));
+ }
+ .hero-copy{width:76%;min-height:0}
+ .hero-copy h1{font-size:clamp(29px,8.2vw,43px);margin:10px 0 6px}
+ .hero-copy p{max-width:205px}
+ .hero-product{
+   position:relative;
+   top:auto;right:auto;
+   align-self:flex-end;
+   width:68%;
+   height:clamp(165px,28svh,250px);
+   margin-top:-22px;
+   margin-bottom:-22px;
+   flex:none;
+ }
+ .hero-product img{transform:rotate(-13deg) scale(1.08)}
+ .sale-bubble{bottom:8%;right:7%}
+ .offer{margin-top:0;width:100%}
+ .hero-button{margin-top:0}
+ .hero-trust{padding-top:1px}
+}
+@media(max-width:699px) and (max-height:720px){
+ .hero-inner{gap:5px;padding-top:6px}
+ .hero-product{height:clamp(130px,24svh,190px);margin-top:-20px;margin-bottom:-22px}
+ .hero-copy h1{font-size:clamp(26px,7.5vw,35px)}
+ .offer{padding:7px 12px}
+ .countdown strong{font-size:20px}
+}
+
+/* Нові редаговані інформаційні блоки */
+.description-card{background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius);padding:22px;line-height:1.7;color:var(--muted)}
+.description-card p{margin:0 0 14px}.description-card ul{margin:0;padding-left:22px}.description-card li{padding:5px 0}.description-card li::marker{color:var(--accent)}
+.specs{background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius);overflow:hidden}
+.spec-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:13px 16px;border-bottom:1px solid var(--border);font-size:14px}
+.spec-row:last-child{border-bottom:0}.spec-row span{color:var(--muted);flex:1}.spec-row strong{flex:1;text-align:right;font-weight:750}
+.usage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.usage-step{padding:18px;background:var(--card);border:var(--border-width) solid var(--border);border-radius:var(--radius)}
+.usage-number{color:var(--accent-light);font-size:28px;font-weight:1000}.usage-step h3{font-size:16px;margin:9px 0}.usage-step p{font-size:13px;color:var(--muted);margin:0;line-height:1.55}
+@media(max-width:500px){.usage{grid-template-columns:1fr}}
+
+/* Bestyshop: компактний логотип, колір від --accent */
+.brand-logo{display:inline-flex;align-items:center;gap:7px;min-width:0;max-width:70%;font-size:clamp(15px,4.4vw,22px);letter-spacing:-.7px}
+.brand-icon{width:31px;height:31px;flex:none;color:var(--text)}
+.brand-wordmark{white-space:nowrap;line-height:1;display:flex;align-items:baseline}
+.brand-wordmark strong{font-weight:900}
+.brand-domain{color:var(--accent)}
+.top-note{white-space:nowrap}
+@media(max-width:355px){.brand-logo{font-size:15px;gap:4px}.brand-icon{width:25px;height:25px}.top-note{font-size:9px}}
+
+/* Широка мобільна шапка: повернено B з кошиком */
+.top{width:100%;min-width:0;overflow:hidden}
+.brand-logo{flex:0 1 auto;max-width:none;min-width:0}
+.brand-wordmark{min-width:0;white-space:nowrap}
+.brand-icon{display:block;flex-shrink:0}
+@media(max-width:699px){
+ .top{height:54px;padding:0 12px;justify-content:flex-start}
+ .brand-logo{width:100%;max-width:100%;font-size:clamp(18px,5.6vw,25px);gap:9px;letter-spacing:-.9px}
+ .brand-icon{width:34px;height:34px}
+ .top-note{display:none}
+ .hero-inner{min-height:calc(100svh - 54px)}
+}
+@media(max-width:360px){
+ .top{padding:0 9px}
+ .brand-logo{font-size:clamp(16px,5.1vw,19px);gap:6px}
+ .brand-icon{width:30px;height:30px}
+}
+
+/* Акцент тільки для кошика і .shop; B та bestyshop залишаються білими */
+:root{--logo-accent:var(--accent)}
+.brand-icon{color:#fff}
+.brand-wordmark #brand-name{color:#fff}
+.brand-wordmark .brand-domain{color:var(--logo-accent)}
+
+/* Остання настройка логотипу: B + .shop акцентні, кошик білий */
+.brand-icon{color:var(--logo-accent, var(--accent))}
+.brand-icon path[stroke],.brand-icon circle{stroke:#fff;fill:#fff}
+.brand-icon path[stroke]{fill:none}
+.brand-wordmark #brand-name{color:#fff}
+.brand-wordmark .brand-domain{color:var(--logo-accent, var(--accent))}
+
+/* Contact preference additions */
+.contact-choice{border:1px solid rgba(160,160,180,.3);border-radius:14px;padding:14px;margin:12px 0 16px;display:flex;gap:10px;flex-wrap:wrap}
+.contact-choice legend{padding:0 6px;font-weight:700}
+.contact-choice label{display:inline-flex;align-items:center;gap:7px;cursor:pointer;padding:7px 10px;border-radius:9px;background:rgba(150,150,160,.1)}
+.contact-choice input{width:auto!important;min-width:0!important;accent-color:#a65cff}
+#telegram-handle-wrap[hidden]{display:none}
+#telegram-handle-wrap small{display:block;margin:5px 0 12px;opacity:.75}
+.prepay-info{padding:13px 15px;border-radius:12px;background:rgba(166,92,255,.1);line-height:1.5;margin:12px 0}
+.prepay-info strong,.prepay-info span{display:block}
+
+
+/* BESTYSHOP HERO V2 — adaptive layout; original order logic untouched */
+.top{height:66px;max-width:none;padding:0 max(18px,calc((100vw - 1160px)/2));}
+.top-note{font-size:13px}
+.hero{background:radial-gradient(ellipse at 78% 10%,#53132e 0%,#1b0917 48%,#08070b 85%);}
+.hero-inner{width:min(100% - 40px,1160px);min-height:0;margin:0 auto;padding:28px 0 38px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"copy visual" "offer order";align-items:stretch;gap:22px;}
+.hero-copy{grid-area:copy;width:100%;align-self:center;z-index:2;padding:10px 0 0;}
+.hero-copy h1{font-size:clamp(42px,5vw,76px);line-height:1.03;letter-spacing:-2px;margin:18px 0 18px;max-width:600px;}
+.hero-copy p{font-size:clamp(17px,1.7vw,23px);max-width:470px;line-height:1.4;}
+.badge{font-size:14px;padding:10px 18px;}
+.benefit-mini{display:flex;gap:18px;margin-top:35px;}
+.benefit-mini span{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:75px;color:#ff5a9a;font-size:27px;}
+.benefit-mini small{font-size:12px;color:#fff;text-align:center;}
+.hero-product{grid-area:visual;position:relative;right:auto;top:auto;width:100%;height:390px;filter:none;border-radius:20px;overflow:hidden;background:linear-gradient(90deg,#150a14 0%,transparent 35%),url('images/hero-model.jpg') center 36%/cover no-repeat;box-shadow:0 12px 45px #0009;}
+.hero-product img{display:none;}
+.offer{grid-area:offer;margin:0;width:100%;padding:24px;border-radius:20px;background:linear-gradient(140deg,#181019,#0b090e);border:1px solid #8d2c58;}
+.offer-top{align-items:center;gap:10px;flex-wrap:wrap;}
+.price{font-size:clamp(40px,5vw,70px);line-height:1.1;white-space:nowrap;letter-spacing:-2px;}
+.off{font-size:clamp(18px,2.5vw,30px);white-space:nowrap;}
+.count-label{margin:22px 0 12px;font-size:14px;}
+.countdown{gap:5px;max-width:100%;}
+.countdown>div{min-width:0;padding:10px 2px;}
+.countdown strong{font-size:clamp(18px,2.8vw,32px);}
+.countdown b{font-size:14px;}
+.order-panel{grid-area:order;min-width:0;background:#0d0a11;border:1px solid #8d2c58;border-radius:20px;padding:24px;}
+.order-panel h2{font-size:clamp(23px,2.7vw,34px);text-align:center;margin:0 0 8px;}
+.order-panel .sub{text-align:center;margin:0 0 16px;}
+.order-card{border:0;background:transparent;padding:0;border-radius:0;gap:8px;}
+.order-card input{padding:13px;}
+.contact-choice{min-width:0;border:1px solid #574252;border-radius:12px;display:flex;flex-wrap:wrap;gap:10px;padding:10px;}
+.contact-choice legend{font-weight:700;font-size:13px;}
+.contact-choice label{display:inline-flex;align-items:center;gap:5px;padding:7px 9px;border-radius:8px;background:#211b27;}
+.contact-choice input{width:auto;accent-color:#ff246f;}
+.prepay-info{margin:8px 0;font-size:13px;color:#ddd;background:#241728;padding:12px;border-radius:10px;}
+.prepay-info span{display:block;margin-top:5px;}
+.order-panel .primary{padding:15px;}
+.section.wrap{width:min(100% - 40px,1160px);}
+@media(max-width:740px){
+ .top{height:58px;padding:0 14px}.top-note{font-size:10px}
+ .hero-inner{width:min(100% - 24px,540px);padding:16px 0 24px;grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "visual" "offer" "order";gap:12px;}
+ .hero-copy{padding:0;}
+ .hero-copy h1{font-size:clamp(33px,8.6vw,50px);letter-spacing:-1px;line-height:1.02;margin:12px 0 10px;}
+ .hero-copy p{font-size:15px;max-width:none;}
+ .badge{font-size:11px;padding:7px 12px;}
+ .benefit-mini{margin-top:14px;gap:8px;justify-content:space-around;}
+ .benefit-mini span{font-size:22px;gap:3px;min-width:0;}
+ .benefit-mini small{font-size:11px;}
+ .hero-product{height:clamp(215px,65vw,320px);background-position:center 30%;}
+ .offer{padding:15px;}
+ .price{font-size:clamp(37px,10vw,56px);}
+ .off{font-size:20px;padding:9px;}
+ .count-label{margin:12px 0 8px;}
+ .countdown>div{padding:6px 2px;}
+ .countdown strong{font-size:clamp(19px,6vw,28px);}
+ .order-panel{padding:16px;}
+ .order-panel h2{font-size:26px;}
+}
+@media(max-width:350px){.price{font-size:35px}.off{font-size:17px}.hero-copy h1{font-size:31px}}
+
+
+/* V3: full-bleed background hero, CTA to separate order section */
+.hero{overflow:hidden;background:#0c0810;isolation:isolate}
+.hero-inner{width:min(100% - 36px,1120px);min-height:0;display:flex;flex-direction:column;justify-content:flex-start;gap:0;padding:clamp(24px,5vw,64px) 0 32px}
+.hero-product{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;margin:0!important;z-index:-1!important;pointer-events:none;filter:none!important;border:0!important;border-radius:0!important;overflow:hidden}
+.hero-product img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%;transform:none!important;border-radius:0!important}
+.hero-inner::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,5,12,.98) 0%,rgba(10,6,13,.91) 34%,rgba(13,6,15,.46) 66%,rgba(12,5,12,.2) 100%),linear-gradient(0deg,#0b0810 0%,transparent 44%)}
+.hero-copy,.offer{position:relative;z-index:2}
+.hero-copy{width:min(100%,590px);min-height:0}
+.hero-copy h1{font-size:clamp(34px,5.4vw,76px);line-height:1.02;max-width:620px;margin:18px 0 15px}
+.hero-copy p{font-size:clamp(15px,1.6vw,20px);max-width:440px}
+.benefit-mini{margin-top:24px}
+.offer{width:min(100%,470px);margin:clamp(35px,6vw,88px) 0 0;padding:22px;background:rgba(14,10,18,.91);backdrop-filter:blur(8px)}
+.offer-top{min-width:0}.price{white-space:nowrap;font-size:clamp(40px,6vw,64px)}
+.off{flex:none}.countdown{gap:6px}.countdown>div{min-width:0}.countdown strong{font-size:clamp(22px,3.2vw,34px)}
+.hero-cta{margin-top:18px}
+.order-panel{scroll-margin-top:18px;padding:40px 0 48px;max-width:680px}
+.order-panel h2{text-align:center}.order-panel>.sub{text-align:center}
+.order-panel .order-card{padding:clamp(18px,4vw,28px)}
+@media(max-width:699px){
+ .hero-inner{width:calc(100% - 30px);min-height:0!important;padding:25px 0 24px;gap:0!important}
+ .hero-product img{object-position:57% center}
+ .hero-inner::before{background:linear-gradient(180deg,rgba(9,5,12,.76) 0%,rgba(10,5,13,.36) 27%,rgba(10,5,13,.22) 48%,rgba(10,5,13,.91) 75%,#0b0810 100%),linear-gradient(90deg,rgba(10,5,12,.55),transparent 65%)}
+ .hero-copy{width:100%!important}
+ .hero-copy h1{font-size:clamp(30px,8vw,48px)!important;max-width:540px;margin:16px 0 12px}
+ .hero-copy p{max-width:340px;font-size:clamp(14px,3.5vw,18px)}
+ .benefit-mini{margin-top:18px}
+ .offer{margin-top:clamp(170px,39vw,290px)!important;width:100%;padding:16px}
+ .price{font-size:clamp(38px,10vw,58px)}
+ .off{font-size:clamp(18px,5vw,26px)}
+ .countdown strong{font-size:clamp(20px,5.8vw,30px)}
+ .countdown b{font-size:14px}
+ .order-panel{padding:30px 0 45px}
+}
+@media(max-width:380px){
+ .hero-inner{width:calc(100% - 24px)}
+ .hero-copy h1{font-size:clamp(28px,8vw,34px)!important}
+ .offer{padding:12px}
+ .countdown{gap:3px}
+ .countdown>div{padding:5px 2px}
+ .countdown strong{font-size:20px}
+}
+
+
+/* V4: offer position and readable mobile benefits */
+@media (min-width:700px) {
+  .hero-inner .offer {
+    margin-top: 10px !important;
+  }
+  .hero-copy .benefit-mini {
+    margin-top: 16px;
+  }
+}
+@media (max-width:699px) {
+  .hero-inner .offer {
+    margin-top: clamp(260px, 67vw, 420px) !important;
+  }
+  .hero-copy .benefit-mini span,
+  .hero-copy .benefit-mini small {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    text-shadow: 0 2px 7px rgba(0,0,0,.8);
+  }
+}
+
+
+/* V5 — desktop: one aligned column, compact offer fully visible */
+@media (min-width:700px) {
+  .hero-inner {
+    width: min(calc(100% - 48px), 1120px);
+    padding-top: 28px !important;
+    padding-bottom: 24px !important;
+    align-items: flex-start !important;
+  }
+  .hero-copy {
+    align-self: flex-start !important;
+    width: min(100%, 470px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .hero-copy h1 {
+    font-size: clamp(39px, 4.2vw, 59px) !important;
+    line-height: 1.02 !important;
+    margin: 12px 0 12px !important;
+    letter-spacing: -1.5px;
+  }
+  .hero-copy p {
+    font-size: clamp(15px, 1.25vw, 18px) !important;
+    line-height: 1.35;
+    margin: 0;
+  }
+  .hero-copy .benefit-mini {
+    margin-top: 15px !important;
+    margin-bottom: 0 !important;
+  }
+  .hero-inner .offer {
+    align-self: flex-start !important;
+    width: min(100%, 470px) !important;
+    margin: 12px 0 0 !important;
+    padding: 14px 17px !important;
+    border-radius: 18px;
+  }
+  .offer .price {
+    font-size: clamp(38px, 3.8vw, 53px) !important;
+    line-height: 1.04;
+  }
+  .offer .off {
+    font-size: 22px !important;
+    padding: 9px 13px !important;
+  }
+  .offer .count-label { margin: 11px 0 7px !important; }
+  .offer .countdown > div { padding: 6px 2px !important; }
+  .offer .countdown strong { font-size: 24px !important; }
+  .offer .countdown b { font-size: 11px !important; }
+  .offer .hero-cta { margin-top: 11px !important; }
+  .offer .primary { padding: 12px 14px !important; }
+}
+@media (min-width:700px) and (max-height:760px) {
+  .hero-inner { padding-top: 14px !important; padding-bottom: 12px !important; }
+  .hero-copy h1 { font-size: clamp(36px, 3.8vw, 49px) !important; margin: 8px 0 !important; }
+  .hero-copy .benefit-mini { margin-top: 8px !important; }
+  .hero-inner .offer { margin-top: 8px !important; padding: 10px 15px !important; }
+  .offer .count-label { margin: 7px 0 5px !important; }
+  .offer .countdown > div { padding: 4px 2px !important; }
+  .offer .hero-cta { margin-top: 8px !important; }
+}
+
+
+/* V6: requested final placement, contrast and header icons */
+.top-note{display:inline-flex;align-items:center;gap:9px;color:#fff}
+.top-note .header-service{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.top-note svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.benefit-mini span,.benefit-mini small{color:#fff!important;opacity:1!important}
+.benefit-mini span{text-shadow:0 2px 7px #000b}
+@media(min-width:700px){
+  /* Hero fills viewport below header, so order form starts on next screen. */
+  .hero{min-height:calc(100svh - 66px)}
+  .hero-inner{min-height:calc(100svh - 66px)!important;box-sizing:border-box}
+  .hero-copy .benefit-mini span{color:#fff!important}
+  .hero-copy .benefit-mini small{color:#fff!important}
+}
+@media(max-width:699px){
+  .top-note .header-service:nth-child(2){display:none}
+  .top-note{font-size:10px;gap:4px}
+  .top-note svg{width:16px;height:16px}
+  /* Move the three benefits down, just above the promotion card,
+     while preserving the background image and all form behavior. */
+  .hero-copy .benefit-mini{
+    margin-top:clamp(255px,65vw,415px)!important;
+    margin-bottom:0!important;
+    display:flex;
+    justify-content:space-around;
+    gap:6px;
+  }
+  .hero-copy .benefit-mini span{
+    color:#fff!important;
+    font-size:23px!important;
+    text-shadow:0 2px 8px #000!important;
+  }
+  .hero-copy .benefit-mini small{
+    color:#fff!important;
+    font-size:11px!important;
+    text-shadow:0 2px 8px #000!important;
+  }
+  .hero-inner .offer{
+    margin-top:18px!important;
+  }
+}
+
+/* V8: clean campaign background; mobile image and HTML copy share ONE hero */
+.hero-product{filter:none!important}
+.hero-product img{object-fit:cover!important;object-position:center center!important}
+.hero-inner::before{background:linear-gradient(90deg,rgba(8,5,12,.90) 0%,rgba(10,6,13,.72) 35%,rgba(13,6,15,.05) 78%)!important}
+@media(max-width:699px){
+  .hero{background:#0c0710!important}
+  .hero-inner{
+    display:flex!important;flex-direction:column!important;
+    min-height:0!important;height:auto!important;
+    padding:clamp(380px,105vw,680px) 0 24px!important;
+    gap:0!important;
+  }
+  .hero-product{
+    position:absolute!important;left:0!important;right:0!important;top:0!important;
+    width:100%!important;height:clamp(400px,110vw,720px)!important;
+    overflow:hidden!important;z-index:0!important;
+  }
+  .hero-product img{
+    width:100%!important;height:100%!important;
+    object-fit:contain!important;object-position:center top!important;
+  }
+  .hero-inner::before{
+    background:linear-gradient(to bottom,transparent 0%,transparent 32%,rgba(12,7,16,.15) 47%,#0c0710 65%,#0c0710 100%)!important;
+    z-index:1!important;
+  }
+  .hero-copy{position:relative!important;z-index:2!important;width:100%!important}
+  .hero-copy h1{font-size:clamp(28px,7.2vw,44px)!important}
+  .hero-copy .benefit-mini{
+    margin-top:22px!important;margin-bottom:0!important;
+    display:flex!important;justify-content:space-around!important;
+  }
+  .hero-copy .benefit-mini span,
+  .hero-copy .benefit-mini small{color:white!important;opacity:1!important}
+  .hero-inner .offer{
+    margin:22px 0 0!important;width:100%!important;z-index:2!important;
+  }
+}
+@media(min-width:700px){
+  .hero-product img{object-fit:cover!important;object-position:center center!important}
+}
+
+
+/* V9 MOBILE REPAIR: one continuous hero; no empty top; full image visible */
+@media (max-width:699px) {
+  .hero {background:#0c0710!important; overflow:hidden!important;}
+  .hero-inner {
+    position:relative!important;
+    display:flex!important;
+    flex-direction:column!important;
+    justify-content:flex-start!important;
+    width:calc(100% - 28px)!important;
+    height:auto!important;
+    min-height:0!important;
+    padding:clamp(205px,56vw,395px) 0 25px!important;
+    gap:0!important;
+    background:none!important;
+  }
+  .hero-product {
+    position:absolute!important;
+    top:0!important;left:0!important;right:0!important;bottom:auto!important;
+    display:block!important;
+    width:100%!important;
+    height:clamp(205px,56vw,395px)!important;
+    margin:0!important;
+    padding:0!important;
+    z-index:0!important;
+    background:none!important;
+    border:0!important;
+    border-radius:0!important;
+    overflow:hidden!important;
+    pointer-events:none!important;
+  }
+  .hero-product img {
+    display:block!important;
+    position:static!important;
+    width:100%!important;height:100%!important;
+    object-fit:contain!important;
+    object-position:center top!important;
+    transform:none!important;
+    opacity:1!important;
+  }
+  .hero-inner::before {
+    content:""!important;
+    position:absolute!important;inset:0!important;
+    background:linear-gradient(to bottom,transparent 0%,transparent 22%,rgba(12,7,16,.12) 31%,#0c0710 43%,#0c0710 100%)!important;
+    z-index:1!important;pointer-events:none!important;
+  }
+  .hero-copy {position:relative!important;z-index:2!important;width:100%!important;margin:0!important;padding:0!important}
+  .hero-copy .benefit-mini {margin:20px 0 0!important;display:flex!important;justify-content:space-around!important}
+  .hero-copy .benefit-mini span,.hero-copy .benefit-mini small{color:#fff!important;opacity:1!important}
+  .hero-inner .offer{position:relative!important;z-index:2!important;margin:20px 0 0!important;width:100%!important}
+}
+
+
+/* V10 — единый фон на мобильном, текст поверх нижней затемнённой зоны */
+@media (max-width:699px) {
+ .hero {position:relative!important;overflow:hidden!important;background:#0c0710!important;}
+ .hero-inner {
+   position:relative!important;
+   width:calc(100% - 28px)!important;
+   padding:clamp(260px,69vw,470px) 0 26px!important;
+   min-height:0!important;height:auto!important;
+   background:none!important;
+ }
+ .hero-product {
+   display:none!important;
+ }
+ .hero::before {
+   content:""!important;
+   position:absolute!important;
+   inset:0!important;
+   background-image:
+     linear-gradient(to bottom,rgba(12,7,16,.03) 0%,rgba(12,7,16,.06) 17%,rgba(12,7,16,.64) 34%,#0c0710 54%,#0c0710 100%),
+     url("images/hero-model.jpg");
+   background-size:100% 100%,100% auto;
+   background-repeat:no-repeat,no-repeat;
+   background-position:center top,center top;
+   z-index:0!important;
+   pointer-events:none;
+ }
+ .hero-inner::before {display:none!important;}
+ .hero-copy,.hero-inner .offer {position:relative!important;z-index:2!important;}
+ .hero-copy {width:100%!important;}
+ .hero-copy .benefit-mini {margin-top:18px!important;}
+ .hero-inner .offer {margin-top:20px!important;}
+}
+
+
+/* V11: actual continuous mobile hero background. All hero copy is HTML overlay. */
+@media (max-width:699px) {
+  .hero {
+    position:relative!important;
+    isolation:isolate!important;
+    background:#0c0710 url("images/hero-mobile-background.jpg") center top / 100% 100% no-repeat!important;
+    overflow:hidden!important;
+  }
+  .hero::before {
+    content:""!important;
+    position:absolute!important;
+    inset:0!important;
+    background:linear-gradient(180deg,transparent 0%,rgba(12,7,16,.10) 25%,rgba(12,7,16,.20) 43%,rgba(12,7,16,.40) 100%)!important;
+    z-index:0!important;
+    pointer-events:none!important;
+  }
+  .hero-product {display:none!important}
+  .hero-inner {
+    position:relative!important;
+    z-index:1!important;
+    width:calc(100% - 28px)!important;
+    min-height:0!important;
+    height:auto!important;
+    padding:clamp(240px,67vw,390px) 0 28px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    gap:0!important;
+    background:transparent!important;
+  }
+  .hero-inner::before{display:none!important}
+  .hero-copy {position:relative!important;z-index:2!important;width:100%!important}
+  .hero-copy .benefit-mini{margin-top:18px!important}
+  .hero-copy .benefit-mini span,.hero-copy .benefit-mini small{color:#fff!important;opacity:1!important}
+  .hero-copy .benefit-mini span:first-child {font-family:Arial,sans-serif;font-weight:700}
+  .hero-inner .offer{position:relative!important;z-index:2!important;margin:20px 0 0!important;width:100%!important}
+}
+
+
+/* V12: gallery only — existing hero styles are unchanged */
+.product-gallery-section{padding-top:clamp(30px,5vw,65px);padding-bottom:clamp(30px,5vw,65px)}
+.gallery-intro{color:#d5cbd2;margin:0 0 22px}
+.product-gallery-section .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.gallery-thumb{display:block;padding:0;border:1px solid rgba(255,73,153,.38);border-radius:17px;overflow:hidden;background:#161019;cursor:zoom-in;aspect-ratio:1/1;transition:transform .2s,border-color .2s}
+.gallery-thumb:hover{transform:translateY(-3px);border-color:#ff3992}
+.gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.product-video{margin-top:32px}
+.product-video h3{font-size:clamp(20px,3vw,28px);margin:0 0 15px;color:#fff}
+.product-video h3 em{color:#ff69a7;font-style:normal}
+.video-frame{aspect-ratio:16/9;overflow:hidden;border-radius:18px;border:1px solid rgba(255,73,153,.35);background:#09070d}
+.video-frame iframe{width:100%;height:100%;border:0;display:block}
+.product-video a{color:#ff8dbd}
+.gallery-lightbox{border:0;padding:16px;background:#100b14;color:white;border-radius:16px;max-width:min(94vw,950px);max-height:94vh}
+.gallery-lightbox::backdrop{background:rgba(0,0,0,.88)}
+.lightbox-inner{position:relative;display:flex;align-items:center;justify-content:center;min-height:200px}
+.lightbox-inner img{max-width:calc(90vw - 50px);max-height:calc(85vh - 60px);object-fit:contain}
+.lightbox-close,.lightbox-prev,.lightbox-next{position:absolute;border:0;background:rgba(10,5,14,.8);color:white;cursor:pointer;border-radius:50%;width:42px;height:42px;font-size:30px;line-height:1}
+.lightbox-close{right:0;top:0;z-index:1}
+.lightbox-prev{left:0}.lightbox-next{right:0}
+.lightbox-counter{position:absolute;bottom:5px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.75);border-radius:20px;padding:4px 12px;font-size:13px}
+@media(max-width:600px){.product-gallery-section .gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.gallery-thumb{border-radius:12px}.product-video{margin-top:25px}}
+
+
+/* V13: compact single-photo slider; hero styles untouched */
+.product-gallery-section .gallery-carousel{position:relative;max-width:570px;margin:0 auto;display:flex;align-items:center;gap:12px}
+.product-gallery-section .gallery{display:block!important;flex:1;min-width:0}
+.product-gallery-section .gallery-thumb{display:block;width:100%;height:auto;aspect-ratio:1/1;border-radius:18px;cursor:zoom-in}
+.product-gallery-section .gallery-thumb[hidden]{display:none!important}
+.product-gallery-section .gallery-thumb img{width:100%;height:100%;object-fit:contain;background:#100c12}
+.gallery-arrow{flex:0 0 42px;width:42px;height:42px;border:1px solid #ff3992;border-radius:50%;background:#1b0d19;color:white;font-size:30px;cursor:pointer;line-height:1}
+.gallery-arrow:hover{background:#ff2784}
+.gallery-dots{display:flex;justify-content:center;gap:10px;margin:17px 0 0}
+.gallery-dot{height:10px;width:10px;padding:0;border:0;border-radius:50%;background:#705165;cursor:pointer}
+.gallery-dot.active{background:#ff3992;width:25px;border-radius:10px}
+.video-preview{position:relative;display:block;max-width:760px;margin:0 auto;aspect-ratio:16/9;overflow:hidden;border:1px solid rgba(255,73,153,.4);border-radius:18px;background:#150a16;color:#fff;text-decoration:none}
+.video-preview img{display:block;width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
+.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#ff207c;color:white;border-radius:18px;padding:14px 23px;font-size:30px}
+.video-caption{position:absolute;bottom:0;left:0;right:0;padding:18px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-weight:700;text-align:center}
+@media(max-width:600px){.product-gallery-section .gallery-carousel{gap:6px;max-width:100%}.gallery-arrow{flex-basis:32px;width:32px;height:38px;font-size:25px}.product-gallery-section .gallery-thumb{border-radius:12px}.video-caption{font-size:13px}}
+
+
+/* V15: wide gallery matching video, overlay navigation */
+.product-gallery-section .gallery-carousel{
+  position:relative!important;
+  display:block!important;
+  width:100%!important;
+  max-width:760px!important;
+  margin:0 auto!important;
+}
+.product-gallery-section .gallery{
+  display:block!important;
+  width:100%!important;
+  min-width:0!important;
+}
+.product-gallery-section .gallery-thumb{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:16/9!important;
+  overflow:hidden!important;
+  border-radius:18px!important;
+  background:#f5f3f2!important;
+}
+.product-gallery-section .gallery-thumb img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  background:#f5f3f2!important;
+}
+.product-gallery-section .gallery-arrow{
+  position:absolute!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  z-index:5!important;
+  width:44px!important;
+  height:44px!important;
+  border-radius:50%!important;
+  background:rgba(15,6,19,.78)!important;
+  border:1px solid #ff3992!important;
+  color:#fff!important;
+  display:grid!important;
+  place-items:center!important;
+  line-height:1!important;
+  font-size:30px!important;
+  box-shadow:0 2px 12px #0007!important;
+}
+.product-gallery-section .gallery-arrow-prev{left:12px!important}
+.product-gallery-section .gallery-arrow-next{right:12px!important}
+.product-gallery-section .gallery-arrow:hover{background:#ff2784!important}
+@media(max-width:600px){
+  .product-gallery-section .gallery-thumb{border-radius:14px!important}
+  .product-gallery-section .gallery-arrow{width:36px!important;height:36px!important;font-size:25px!important}
+  .product-gallery-section .gallery-arrow-prev{left:7px!important}
+  .product-gallery-section .gallery-arrow-next{right:7px!important}
+}
+
+
+/* V20: ссылка отдельно ПОД акцией; форма без внешнего фона */
+.hero-inner > .hero-more.hero-more-inline{
+  position:relative;z-index:5;align-self:center;
+  margin:5px auto 10px !important;padding:5px 12px !important;
+  display:flex !important;justify-content:center;align-items:center;
+  gap:7px;color:#fff !important;font-size:14px;font-weight:650;
+  text-decoration:none !important;white-space:nowrap;
+  background:transparent !important;border:0 !important;box-shadow:none !important;
+}
+.hero-inner > .hero-more.hero-more-inline span{color:#fff !important;font-size:20px}
+#checkout-section.bottom-checkout{
+  background:none !important;border:none !important;box-shadow:none !important;
+  padding:0 !important;border-radius:0 !important;
+  width:min(calc(100% - 32px),800px) !important;
+  margin:34px auto 20px !important;display:block !important;
+}
+#checkout-section.bottom-checkout > #order.order-panel{
+  width:100% !important;max-width:800px !important;
+  margin:0 auto !important;padding:clamp(20px,4vw,36px) !important;
+  box-sizing:border-box !important;
+}
+#checkout-section .order-panel .sub{max-width:100%;overflow-wrap:break-word}
+@media(max-width:600px){
+ #checkout-section.bottom-checkout{width:calc(100% - 24px) !important}
+ #checkout-section.bottom-checkout > #order.order-panel{padding:22px 16px !important}
+ .hero-inner > .hero-more.hero-more-inline{margin:4px auto 8px !important;font-size:13px}
+}
+</style></head><body>
 <header class="top"><a class="brand brand-logo" href="#top" id="brand" aria-label="Bestyshop — на початок">
 <svg class="brand-icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M15 6h26c11 0 17 6 17 15 0 6-3 10-8 13 7 2 11 7 11 14 0 10-8 16-20 16H12l3-11h26c6 0 9-2 9-6 0-5-4-7-10-7H25l-5-10h20c5 0 8-2 8-6 0-5-3-7-9-7H12z" fill="currentColor"/><path d="M3 27h13m-9 9h12m-8 9h10m0-17h8l7 19h16l5-13H32" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="39" cy="54" r="3" fill="#ffffff"/><circle cx="51" cy="54" r="3" fill="#ffffff"/></svg>
-<span class="brand-wordmark"><strong id="brand-name">bestyshop</strong><strong class="brand-domain">.shop</strong></span></a><span class="top-note">🚚 Доставка по Україні</span></header>
-<main><section class="hero" id="top"><div class="glow"></div><div class="hero-inner">
-<div class="hero-copy"><span class="badge" id="badge">🔥 ХІТ ПРОДАЖІВ</span><h1 id="headline">ІДЕАЛЬНІ<br>ЛОКОНИ<br><em>ЗА 5 ХВИЛИН</em></h1><p id="subtitle">Професійна плойка для розкішної зачіски вдома</p></div>
-<div class="hero-product"><img id="hero-image" src="images/product.svg" alt="Фото товару"></div>
-<div class="offer"><div class="offer-top"><div><del id="old-price">1299 грн</del><div class="price" id="price">649 <small>грн</small></div></div><span class="off" id="off">−50%</span></div><div class="count-label">⏰ До завершення акції:</div><div class="countdown" id="countdown"><div id="days-box"><strong id="days">00</strong><small>днів</small></div><b>:</b><div><strong id="hours">00</strong><small>год</small></div><b>:</b><div><strong id="minutes">00</strong><small>хв</small></div><b>:</b><div><strong id="seconds">00</strong><small>сек</small></div></div><div class="expired" id="expired" hidden>Уточніть актуальність пропозиції</div></div>
-<a class="primary hero-button" href="#order">🛒 ЗАМОВИТИ ЗІ ЗНИЖКОЮ <span>↓</span></a><div class="hero-trust"><span>✓ Швидке оформлення</span><span>✓ Підтвердження без дзвінків</span></div>
-</div></section>
-<section class="section wrap" id="order"><div class="section-tag">ВАША ЗНИЖКА ЧЕКАЄ</div><h2>ОФОРМІТЬ <em>ЗАМОВЛЕННЯ</em></h2><p class="sub">Заповніть форму — ми напишемо вам для підтвердження. Жодних дзвінків!</p><form id="order-form" class="order-card"><label for="name">Ваше ім’я</label><input id="name" name="name" autocomplete="name" placeholder="Наприклад, Олена" required minlength="2" maxlength="80"><label for="phone">Номер телефону</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380 XX XXX XX XX" required><fieldset class="contact-choice"><legend>Як вам зручно отримати повідомлення?</legend><label><input type="radio" name="contact_method" value="viber" checked> Viber</label><label><input type="radio" name="contact_method" value="telegram"> Telegram</label><label><input type="radio" name="contact_method" value="sms"> SMS</label></fieldset><div id="telegram-handle-wrap" hidden><label for="telegram_username">Ваш Telegram @username</label><input id="telegram_username" name="telegram_username" placeholder="@username" autocomplete="off" maxlength="33"><small>Щоб ми могли написати вам без дзвінка.</small></div><p class="prepay-info"><strong>Без дзвінків 💜</strong> Підтвердимо замовлення повідомленням.<span>Передоплата — 150 грн, решта 499 грн — при отриманні на Новій пошті.</span></p><input class="trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="primary" id="send" type="submit">🔥 ЗАМОВИТИ ЗАРАЗ</button><p id="status" role="status" aria-live="polite"></p><small>Надсилаючи заявку, ви погоджуєтеся на обробку даних для зв’язку щодо замовлення.</small></form></section>
+<span class="brand-wordmark"><strong id="brand-name">bestyshop</strong><strong class="brand-domain">.shop</strong></span></a><span class="top-note"><span class="header-service"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h11v11H3zM14 10h4l3 4v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg>Доставка по Україні</span><span class="header-service"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3 8-8 10-5-2-8-5-8-10V6z"/><path d="M8 12l3 3 5-6"/></svg>Підтвердження без дзвінків</span></span></header>
+<main><section class="hero" id="top"><div class="hero-inner">
+<div class="hero-copy"><span class="badge" id="badge">🔥 ХІТ ПРОДАЖІВ</span><h1 id="headline">ІДЕАЛЬНІ ЛОКОНИ ЗА 5 ХВИЛИН</h1><p id="subtitle">Професійна плойка для розкішної зачіски вдома</p>
+<div class="benefit-mini"><span>∿<small>Красиві хвилі</small></span><span>✦<small>Стиль удома</small></span><span>♨<small>Зручна укладка</small></span></div></div>
+<div class="hero-product" aria-hidden="true"><img id="hero-image" src="images/hero-model.jpg" alt=""></div>
+<div class="offer"><div class="offer-top"><div><del id="old-price">1299 грн</del><div class="price" id="price">649 грн</div></div><span class="off" id="off">−50%</span></div><div class="count-label">⏰ До завершення пропозиції:</div><div class="countdown" id="countdown"><div id="days-box"><strong id="days">00</strong><small>днів</small></div><b>:</b><div><strong id="hours">00</strong><small>год</small></div><b>:</b><div><strong id="minutes">00</strong><small>хв</small></div><b>:</b><div><strong id="seconds">00</strong><small>сек</small></div></div><div class="expired" id="expired" hidden>Уточніть актуальність пропозиції</div><a class="primary hero-cta" href="#order">🛒 ЗАМОВИТИ ЗАРАЗ ↓</a></div><a class="hero-more hero-more-inline" href="#gallery-section">Більше інформації <span aria-hidden="true">↓</span></a></div></section><section class="section wrap product-gallery-section" id="gallery-section"><h2>РОЗДИВІТЬСЯ <em>ПЛОЙКУ БЛИЖЧЕ</em></h2><p class="gallery-intro">Реальні фото рожевої плойки Geemy GM-1956 та відеоогляд.</p><div class="gallery-carousel" aria-label="Фото товару"><button class="gallery-arrow gallery-arrow-prev" type="button" aria-label="Попереднє фото">‹</button><div class="gallery" id="gallery"></div><button class="gallery-arrow gallery-arrow-next" type="button" aria-label="Наступне фото">›</button></div><div class="gallery-dots" id="gallery-dots" aria-label="Перемикання фото"></div><div class="product-video"><h3>ВІДЕООГЛЯД <em>ТОВАРУ</em></h3><a class="video-preview" href="https://youtu.be/sUVbbqSsI0s" target="_blank" rel="noopener noreferrer" aria-label="Дивитися відеоогляд на YouTube"><img src="https://img.youtube.com/vi/sUVbbqSsI0s/hqdefault.jpg" alt="Відеоогляд плойки Geemy GM-1956" loading="lazy"><span class="video-play" aria-hidden="true">▶</span><span class="video-caption">▶ Дивитися відеоогляд на YouTube</span></a></div></section>
 <section class="section wrap" id="benefits-section"><h2>ЧОМУ ОБИРАЮТЬ <em>НАС?</em></h2><div class="cards" id="benefits"></div></section>
-<section class="section wrap" id="gallery-section"><h2>ДЕТАЛІ <em>ТОВАРУ</em></h2><div class="gallery" id="gallery"></div></section>
+
 <section class="section wrap" id="reviews-section"><h2>ВІДГУКИ <em>ПОКУПЦІВ</em></h2><div class="reviews" id="reviews"></div></section>
 <section class="section wrap" id="description-section"><span class="section-tag">ПРО ТОВАР</span><h2 id="description-heading">СТВОРЮЙТЕ <em>КРАСИВІ ХВИЛІ</em></h2><div class="description-card"><p id="description-text"></p><ul id="description-points"></ul></div></section>
 <section class="section wrap" id="specs-section"><span class="section-tag">ДЕТАЛІ</span><h2>ТЕХНІЧНІ <em>ХАРАКТЕРИСТИКИ</em></h2><div class="specs" id="specs"></div></section>
 <section class="section wrap" id="usage-section"><span class="section-tag">ПРОСТО ТА ЗРУЧНО</span><h2>ЯК <em>КОРИСТУВАТИСЯ?</em></h2><div class="usage" id="usage"></div></section>
-<section class="bottom wrap"><h2 id="bottom-title">ЗАБЕРИ СВОЮ ЗНИЖКУ!</h2><div class="bottom-price" id="bottom-price"></div><a class="primary" href="#order">🛒 ЗАМОВИТИ ЗАРАЗ</a></section></main>
-<footer class="wrap footer"><span id="footer-brand">Geemy</span><p>Контактні дані використовуються для обробки заявки. Додайте тут контакти продавця, політику конфіденційності й умови повернення.</p></footer>
-</body></html>
+<section class="bottom wrap bottom-checkout" id="checkout-section"><div id="bottom-title" hidden></div><div id="bottom-price" hidden></div><section class="order-panel wrap" id="order"><h2>ОФОРМІТЬ <em>ЗАМОВЛЕННЯ</em></h2><p class="sub">Заповніть форму — ми напишемо вам для підтвердження. Жодних дзвінків!</p><form id="order-form" class="order-card"><label for="name">Ваше ім’я</label><input id="name" name="name" autocomplete="name" placeholder="Наприклад, Олена" required minlength="2" maxlength="80"><label for="phone">Номер телефону</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+380 XX XXX XX XX" required><fieldset class="contact-choice"><legend>Як вам зручно отримати повідомлення?</legend><label><input type="radio" name="contact_method" value="viber" checked> Viber</label><label><input type="radio" name="contact_method" value="telegram"> Telegram</label><label><input type="radio" name="contact_method" value="sms"> SMS</label></fieldset><div id="telegram-handle-wrap" hidden><label for="telegram_username">Ваш Telegram @username</label><input id="telegram_username" name="telegram_username" placeholder="@username" autocomplete="off" maxlength="33"><small>Щоб ми могли написати вам без дзвінка.</small></div><p class="prepay-info"><strong>Без дзвінків 💜</strong> Підтвердимо замовлення повідомленням.<span>Передоплата — 150 грн, решта 499 грн — при отриманні на Новій пошті.</span></p><input class="trap" name="website" tabindex="-1" autocomplete="off" aria-hidden="true"><button class="primary" id="send" type="submit">🔥 ЗАМОВИТИ ЗАРАЗ</button><p id="status" role="status" aria-live="polite"></p><small>Надсилаючи заявку, ви погоджуєтеся на обробку даних для зв’язку щодо замовлення.</small></form></section></section></main>
+<footer class="wrap footer"><span id="footer-brand">Geemy</span><p>Зв’язок із магазином — тільки повідомленнями: <a href="https://t.me/bestyshop1" target="_blank" rel="noopener noreferrer">@bestyshop1</a></p><nav class="footer-links" aria-label="Інформація для покупців"><a href="privacy.html">Політика конфіденційності</a><a href="delivery-returns.html">Доставка, оплата та повернення</a></nav><p class="footer-note">Замовлення підтверджуємо повідомленням. Без дзвінків 💜</p></footer>
+<script>
+window.SITE = {
+  brand:"bestyshop",
+  brandDomain:".shop",
+  badge:"🔥 ХІТ ПРОДАЖІВ",
+  headline:"ІДЕАЛЬНІ ЛОКОНИ ЗА 5 ХВИЛИН",
+  accentWords:"ЗА 5 ХВИЛИН", // виділяється рожевим
+  subtitle:"Професійна плойка для розкішної зачіски вдома",
+  productName:"Плойка Geemy GM-1956",
+  oldPrice:1299,
+  price:649,
+  currency:"грн",
+  heroImage:"images/hero-model.jpg", // замініть фото на власне
+  gallery:["images/gallery-01.jpg","images/gallery-02.jpg","images/gallery-03.jpg","images/gallery-04.jpg","images/gallery-05.jpg"],
+  benefits:[
+    {icon:"〰️",title:"Три хвилі одразу",text:"Три робочі поверхні для хвилястої укладки."},
+    {icon:"🌡️",title:"2 режими",text:"Нагрів до 180 °C або 210 °C."},
+    {icon:"💎",title:"Керамічне покриття",text:"Рівномірний розподіл тепла."},
+    {icon:"↻",title:"Шнур 360°",text:"Зручніше працювати з різних боків."}
+  ],
+  // Публікуйте лише реальні відгуки
+  reviews:[],
+  description: {
+    heading:"СТВОРЮЙТЕ КРАСИВІ ХВИЛІ",
+    text:"Потрійна плойка GEMEI GM-1956 допомагає створювати виразні S-подібні хвилі та м’які локони вдома. Три робочі поверхні формують хвилю за одне притискання, а керамічне покриття сприяє рівномірному розподілу тепла.",
+    points:[
+      "Три робочі поверхні діаметром 25 мм",
+      "Два температурні режими: 180 °C та 210 °C",
+      "Поворотний шнур для зручності укладання"
+    ]
+  },
+  specs:[
+    ["Модель","GEMEI GM-1956"],
+    ["Потужність","45–65 Вт"],
+    ["Діаметр робочої частини","25 мм"],
+    ["Покриття","Керамічне"],
+    ["Температурні режими","180 °C / 210 °C"],
+    ["Максимальна температура","210 °C"],
+    ["Довжина шнура","2,1 м"],
+    ["Обертання шнура","360°"],
+    ["Додатково","Індикатор роботи, термоізольований наконечник, підставка"]
+  ],
+  usage:[
+    {title:"Підготуйте волосся",text:"Повністю висушіть волосся, розчешіть його та нанесіть термозахист."},
+    {title:"Оберіть нагрів",text:"Встановіть режим відповідно до типу волосся. Починайте з нижчої температури."},
+    {title:"Створюйте хвилі",text:"Відокремлюйте невеликі пасма, обережно притискайте плойку та переміщуйте її вниз."},
+    {title:"Завершіть укладку",text:"Дайте локонам охолонути, вимкніть пристрій та залиште його на термостійкій поверхні."}
+  ],
+  sections:{benefits:true,gallery:true,reviews:false,description:true,specs:true,usage:true},
+  bottomTitle:"НЕ ВІДКЛАДАЙ СВОЮ ПОКУПКУ!",
+  // Встановіть справжній термін акції; порожнє значення приховує таймер
+  saleEndsAt:"2026-10-22T12:00:00+03:00",
+  apiUrl:"https://script.google.com/macros/s/AKfycbzUKnZp67QUE_7rRtBNDiCjgljgdW7dnbDwXzoFmXdBqAurzgqUy6arn3ZFtGcBOdvPWQ/exec"
+};
+</script><script>
+(()=>{"use strict";const c=window.SITE,$=s=>document.querySelector(s),node=(tag,text,cls)=>{const n=document.createElement(tag);n.textContent=text??"";if(cls)n.className=cls;return n;};$("#brand-name").textContent=c.brand;$(".brand-domain").textContent=c.brandDomain||"";$("#brand").setAttribute("aria-label",c.brand+(c.brandDomain||""));$("#footer-brand").textContent=c.brand+(c.brandDomain||"");$("#badge").textContent=c.badge;$("#subtitle").textContent=c.subtitle;const h=$("#headline");h.textContent="";const at=c.headline.indexOf(c.accentWords);if(at>=0&&c.accentWords){h.append(document.createTextNode(c.headline.slice(0,at)),node("em",c.accentWords),document.createTextNode(c.headline.slice(at+c.accentWords.length)));}else h.textContent=c.headline;$("#hero-image").src=c.heroImage;$("#hero-image").alt=c.productName;const money=v=>`${Number(v).toLocaleString("uk-UA")} ${c.currency}`;$("#old-price").textContent=money(c.oldPrice);$("#price").textContent=money(c.price);const off=c.oldPrice>c.price?`−${Math.round((1-c.price/c.oldPrice)*100)}%`:"";$("#off").textContent=off;$("#off").hidden=!off;$("#bottom-title").textContent=c.bottomTitle;$("#bottom-price").textContent=money(c.price);
+for(const b of c.benefits){const card=node("article","","card");card.append(node("div",b.icon,"card-icon"),node("h3",b.title),node("p",b.text));$("#benefits").append(card);}
+const galleryRoot=$("#gallery"),dotsRoot=$("#gallery-dots");let slideIndex=0;
+for(const [i,src] of c.gallery.entries()){const btn=document.createElement("button");btn.type="button";btn.className="gallery-thumb";btn.setAttribute("aria-label",`Збільшити фото ${i+1}`);const img=document.createElement("img");img.src=src;img.alt=`${c.productName} — фото ${i+1}`;img.loading=i===0?"eager":"lazy";btn.append(img);btn.addEventListener("click",()=>openGallery(i));galleryRoot.append(btn);const dot=document.createElement("button");dot.type="button";dot.className="gallery-dot";dot.setAttribute("aria-label",`Показати фото ${i+1}`);dot.addEventListener("click",()=>showSlide(i));dotsRoot.append(dot);}
+function showSlide(i){slideIndex=(i+c.gallery.length)%c.gallery.length;Array.from(galleryRoot.children).forEach((el,n)=>{el.hidden=n!==slideIndex;});Array.from(dotsRoot.children).forEach((el,n)=>{el.classList.toggle("active",n===slideIndex);el.setAttribute("aria-current",n===slideIndex?"true":"false");});}
+$(".gallery-arrow-prev").addEventListener("click",()=>showSlide(slideIndex-1));
+$(".gallery-arrow-next").addEventListener("click",()=>showSlide(slideIndex+1));
+let touchX=null;galleryRoot.addEventListener("touchstart",e=>{touchX=e.changedTouches[0].clientX},{passive:true});galleryRoot.addEventListener("touchend",e=>{if(touchX===null)return;const d=e.changedTouches[0].clientX-touchX;if(Math.abs(d)>35)showSlide(slideIndex+(d<0?1:-1));touchX=null;},{passive:true});
+showSlide(0);
+let galleryIndex=0;const lightbox=document.createElement("dialog");lightbox.className="gallery-lightbox";lightbox.innerHTML='<div class="lightbox-inner"><button type="button" class="lightbox-close" aria-label="Закрити">×</button><button type="button" class="lightbox-prev" aria-label="Попереднє фото">‹</button><img alt="Фото товару у збільшеному вигляді"><button type="button" class="lightbox-next" aria-label="Наступне фото">›</button><div class="lightbox-counter"></div></div>';document.body.append(lightbox);
+function showGalleryPhoto(){lightbox.querySelector("img").src=c.gallery[galleryIndex];lightbox.querySelector(".lightbox-counter").textContent=`${galleryIndex+1} / ${c.gallery.length}`;}
+function openGallery(i){galleryIndex=i;showGalleryPhoto();lightbox.showModal();}
+function moveGallery(delta){galleryIndex=(galleryIndex+delta+c.gallery.length)%c.gallery.length;showGalleryPhoto();}
+lightbox.querySelector(".lightbox-close").addEventListener("click",()=>lightbox.close());
+lightbox.querySelector(".lightbox-prev").addEventListener("click",()=>moveGallery(-1));
+lightbox.querySelector(".lightbox-next").addEventListener("click",()=>moveGallery(1));
+lightbox.addEventListener("click",e=>{if(e.target===lightbox)lightbox.close();});
+lightbox.addEventListener("keydown",e=>{if(e.key==="ArrowLeft")moveGallery(-1);if(e.key==="ArrowRight")moveGallery(1);});
+for(const r of c.reviews){const card=node("article","","review");card.append(node("strong",r.name),node("div","★".repeat(Math.max(0,Math.min(5,r.stars||5))),"stars"),node("p",r.text));$("#reviews").append(card);}
+const desc=$("#description-text");if(desc)desc.textContent=c.description?.text||"";
+const dh=$("#description-heading");if(dh)dh.textContent=c.description?.heading||"ПРО ТОВАР";
+for(const point of c.description?.points||[])$("#description-points").append(node("li",point));
+for(const [label,value] of c.specs||[]){const row=node("div","","spec-row");row.append(node("span",label),node("strong",value));$("#specs").append(row);}
+for(const [i,step] of (c.usage||[]).entries()){const card=node("article","","usage-step");card.append(node("span",String(i+1).padStart(2,"0"),"usage-number"),node("h3",step.title),node("p",step.text));$("#usage").append(card);}
+for(const [k,v] of Object.entries(c.sections)){const el=$(`#${k}-section`);if(el)el.hidden=!v;}
+const end=Date.parse(c.saleEndsAt);const countdown=$("#countdown"),expired=$("#expired");if(!Number.isFinite(end)){countdown.hidden=true;expired.hidden=false;expired.textContent="Актуальну ціну уточніть у менеджера";}else{function tick(){const seconds=Math.max(0,Math.floor((end-Date.now())/1000));$("#days").textContent=String(Math.floor(seconds/86400)).padStart(2,"0");$("#hours").textContent=String(Math.floor(seconds%86400/3600)).padStart(2,"0");$("#minutes").textContent=String(Math.floor(seconds%3600/60)).padStart(2,"0");$("#seconds").textContent=String(seconds%60).padStart(2,"0");if(!seconds){clearInterval(id);countdown.hidden=true;expired.hidden=false;}}tick();var id=setInterval(tick,1000);}
+const tgWrap=$("#telegram-handle-wrap"),tgInput=$("#telegram_username");
+function updateContact(){const selected=document.querySelector('input[name="contact_method"]:checked')?.value;tgWrap.hidden=selected!=="telegram";tgInput.required=selected==="telegram";if(selected!=="telegram")tgInput.value="";}
+document.querySelectorAll('input[name="contact_method"]').forEach(r=>r.addEventListener("change",updateContact));updateContact();
+$("#order-form").addEventListener("submit",async e=>{e.preventDefault();const form=e.currentTarget,button=$("#send"),status=$("#status"),name=form.elements.name.value.trim(),phone=form.elements.phone.value.trim();if(name.length<2||!/^\+?[0-9\s()\-]{9,25}$/.test(phone)){status.textContent="Перевірте ім’я та телефон.";return;}const method=form.elements.contact_method.value;const username=tgInput.value.trim();if(method==="telegram"&&!/^@?[a-zA-Z0-9_]{5,32}$/.test(username)){status.textContent="Вкажіть коректний Telegram @username (від 5 символів).";tgInput.focus();return;}button.disabled=true;status.textContent="Надсилаємо…";try{await fetch(c.apiUrl,{method:"POST",mode:"no-cors",body:new URLSearchParams({name,phone,contact_method:method,telegram_username:method==="telegram"?(username.startsWith("@")?username:"@"+username):"",website:form.elements.website.value,product:c.productName,price:String(c.price)})});status.textContent="Заявку передано на обробку. Ми напишемо вам для підтвердження замовлення. Без дзвінків!";form.reset();updateContact();}catch{status.textContent="Помилка надсилання. Спробуйте ще раз.";}finally{button.disabled=false;}});
+})();
+</script></body></html>
